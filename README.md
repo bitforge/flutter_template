@@ -6,10 +6,14 @@ Bitforge Flutter Template
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+1. Clone this repository
+2. Rename this app
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+    flutter pub global activate rename
+    rename setAppName -v AppName
+    rename setBundleId -v ch.bitforge.appname
+
+3. Start hacking!
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
