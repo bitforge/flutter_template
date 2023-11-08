@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/theme/status_bar_theme.dart';
 
 import 'theme/color_schemes.dart';
 
 void main() {
   runApp(const MyApp());
+  StatusBarTheme.setTransparent();
 }
 
 class MyApp extends StatelessWidget {
