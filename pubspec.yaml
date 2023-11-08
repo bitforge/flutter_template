@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
+  flutter_launcher_icons: ^0.13.1
 
 
 dev_dependencies:
@@ -49,8 +50,15 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+# Simple
+flutter_launcher_icons:
+  ios: true
+  image_path: "assets/icons/bitforge_white_on_black.png"
+  android: true
+  adaptive_icon_foreground: "assets/icons/bitforge_white.png"
+  adaptive_icon_background: "#0A0908"
+  min_sdk_android: 21
+
 
 # The following section is specific to Flutter packages.
 flutter:
