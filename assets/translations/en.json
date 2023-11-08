@@ -1,0 +1,32 @@
+{
+  "home": {
+    "nav": "Home",
+    "title": "Counters",
+    "counter_classic": "Classic",
+    "counter_riverpod": "Riverpod"
+  },
+  "info": {
+    "text1": "Flutter App Template",
+    "text2": "Version: {version}",
+    "close": "Okay cool!"
+  },
+  "counter": {
+    "decrement": "Decrement",
+    "increment": "Increment"
+  },
+  "doge": {
+    "nav": "Doge",
+    "title": "Doge as a Service!",
+    "detail": "Such Doge! Much wow!",
+    "share_subject": "Such Doge! Much wow!"
+  },
+  "more": {
+    "nav": "More",
+    "title": "More",
+    "launch_browser": "About Bitforge Ltd.",
+    "change_language": "Change Language"
+  },
+  "errors": {
+    "not_implemented_yet": "Sorry, we're still working on this feature!"
+  }
+}
