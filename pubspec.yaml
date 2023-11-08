@@ -57,7 +57,7 @@ flutter_launcher_icons:
   android: true
   adaptive_icon_foreground: "assets/icons/bitforge_white.png"
   adaptive_icon_background: "#0A0908"
-  min_sdk_android: 21
+  min_sdk_android: 29
 
 
 # The following section is specific to Flutter packages.
