@@ -9,9 +9,11 @@ This project is a starting point for a Flutter application.
 1. Clone this repository
 2. Rename this app
 
-    flutter pub global activate rename
-    rename setAppName -v AppName
-    rename setBundleId -v ch.bitforge.appname
+```
+flutter pub global activate rename
+rename setAppName -v AppName
+rename setBundleId -v ch.bitforge.appname
+```
 
 3. Start hacking!
 
