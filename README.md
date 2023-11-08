@@ -15,7 +15,13 @@ rename setAppName -v AppName
 rename setBundleId -v ch.bitforge.appname
 ```
 
-3. Start hacking!
+3. Add your Icon to `assets/icons` and edit `pubspec.yaml`. Then run:
+
+```
+flutter pub run flutter_launcher_icons
+```
+
+4. Start hacking!
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,

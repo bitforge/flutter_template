@@ -50,10 +50,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-# Simple Icon Generator
-#
-# flutter pub run flutter_launcher_icons
-#
+# Flutter App Icon Generator
 flutter_launcher_icons:
   ios: true
   image_path: "assets/icons/bitforge_white_on_black.png"
