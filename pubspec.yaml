@@ -53,7 +53,7 @@ dev_dependencies:
 # Flutter App Icon Generator
 flutter_launcher_icons:
   ios: true
-  image_path: "assets/icons/bitforge_white_on_black.png"
+  image_path: "assets/icons/bitforge_black_on_white.png"
   android: true
   adaptive_icon_foreground: "assets/icons/bitforge_white.png"
   adaptive_icon_background: "#0A0908"
