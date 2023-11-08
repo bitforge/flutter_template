@@ -8,18 +8,18 @@ environment:
   sdk: ">=3.1.5 <4.0.0"
 
 dependencies:
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  google_fonts: ^6.1.0
   flutter_launcher_icons: ^0.13.1
   flutter_riverpod: ^2.4.5
+  google_fonts: ^6.1.0
 
 dev_dependencies:
+  custom_lint: ^0.5.6
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  custom_lint: ^0.5.6
   riverpod_lint: ^2.3.3
 
 # Flutter App Icon Generator
