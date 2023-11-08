@@ -1,10 +1,14 @@
 # flutter_template
 
-Bitforge Flutter Template
+A template project for new Flutter apps.
+
+Maybe the best way to start any new mobile project in the world. 🚀 🌑 -> 🌕 🥂 🥇
+
+✅ Main-Goal: Create a simple & extendable Flutter App with some common quickwins
+
+🙅 Non-Goal: Beeing an Engine or Framework with a 💩-load of dependencies
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 1. Clone this repository
 2. Rename this app
