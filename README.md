@@ -1,12 +1,12 @@
 # flutter_template
 
-A template project for new Flutter apps.
+A template project for new Bitforge Flutter apps.
 
-Maybe the best way to start any new mobile project in the world. 🚀 🌑 -> 🌕 🥂 🥇
+Maybe the best way to start any new (mobile) project in the world. 🚀 🌑 ➡️ 🌕 🥂 🥇
 
-✅ Main-Goal: Create a simple & extendable Flutter App with some common quickwins
+👍 Main-Goal: Start a new and extendable Flutter App quickly
 
-🙅 Non-Goal: Beeing an Engine or Framework with a 💩-load of dependencies
+👎 Non-Goal: Create an Engine or Framework with a 💩-load of dependencies
 
 ## Getting Started
 
@@ -19,13 +19,24 @@ rename setAppName -v AppName
 rename setBundleId -v ch.bitforge.appname
 ```
 
-3. Add your Icon to `assets/icons` and edit `pubspec.yaml`. Then run:
+3. Disable platforms you don't need:
+
+```
+flutter config --no-enable-linux-desktop
+flutter config --no-enable-macos-desktop
+flutter config --no-enable-windows-desktop
+rm -rf linux
+rm -rf macos
+rm -rf windows
+```
+
+4. Add your Icon to `assets/icons` and edit `flutter_launcher_icons.yaml`. Then run:
 
 ```
 flutter pub run flutter_launcher_icons
 ```
 
-4. Start hacking!
+5. Start hacking!
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
