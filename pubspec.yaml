@@ -36,6 +36,10 @@ flutter_launcher_icons:
     image_path: "assets/icons/bitforge_white_on_black.png"
     background_color: "#0A0908"
     theme_color: "#ffffff"
+  windows:
+    generate: true
+    image_path: "assets/icons/bitforge_white_on_black.png"
+    icon_size: 256
   macos:
     generate: true
     image_path: "assets/icons/bitforge_white_on_black.png"
