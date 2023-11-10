@@ -1,20 +1,20 @@
 # Flutter App Icon config
 flutter_launcher_icons:
-    ios: true
-    image_path: "assets/icons/bitforge_white_on_black.png"
-    android: true
-    adaptive_icon_foreground: "assets/icons/bitforge_white.png"
-    adaptive_icon_background: "#0A0908"
-    min_sdk_android: 29
-    web:
-      generate: true
-      image_path: "assets/icons/bitforge_white_on_black.png"
-      background_color: "#0A0908"
-      theme_color: "#ffffff"
-    windows:
-      generate: true
-      image_path: "assets/icons/bitforge_white_on_black.png"
-      icon_size: 256
-    macos:
-      generate: true
-      image_path: "assets/icons/bitforge_white_on_black.png"
+  ios: true
+  image_path: assets/icons/bitforge_white_on_black.png
+  android: true
+  adaptive_icon_foreground: assets/icons/bitforge_white.png
+  adaptive_icon_background: "#0A0908"
+  min_sdk_android: 29
+  web:
+    generate: true
+    image_path: assets/icons/bitforge_white_on_black.png
+    background_color: "#0A0908"
+    theme_color: "#ffffff"
+  windows:
+    generate: true
+    image_path: assets/icons/bitforge_white_on_black.png
+    icon_size: 256
+  macos:
+    generate: true
+    image_path: assets/icons/bitforge_white_on_black.png

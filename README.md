@@ -33,7 +33,7 @@ rm -rf windows
 4. Add your Icon to `assets/icons` and edit `flutter_launcher_icons.yaml`. Then run:
 
 ```
-flutter pub run flutter_launcher_icons
+dart run flutter_launcher_icons
 ```
 
 5. Start hacking!
