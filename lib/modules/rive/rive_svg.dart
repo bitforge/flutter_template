@@ -19,7 +19,7 @@ class _RivePageState extends ConsumerState<RiveSvg> {
   void initState() {
     super.initState();
 
-    rootBundle.load('assets/rive/fooby-welcome.riv').then(
+    rootBundle.load('assets/rive/foob-welc.riv').then(
       (data) async {
         final file = RiveFile.import(data);
 
@@ -36,15 +36,16 @@ class _RivePageState extends ConsumerState<RiveSvg> {
         title: const Text('Rive Demo'),
       ),
       body: Center(
-          child: _riveArtboard == null
-              ? const SizedBox()
-              : SizedBox(
-                  width: 300,
-                  height: 300,
-                  child: Rive(
-                    artboard: _riveArtboard!.instance(),
-                  ),
-                )),
+        child: _riveArtboard == null
+            ? const SizedBox.shrink()
+            : SizedBox(
+                width: 258,
+                height: 258,
+                child: Rive(
+                  artboard: _riveArtboard!.instance(),
+                ),
+              ),
+      ),
     );
   }
 }
