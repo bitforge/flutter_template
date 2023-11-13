@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BasicCounterPage extends StatefulWidget {
-  const BasicCounterPage({super.key});
+class ClassicCounterPage extends StatefulWidget {
+  const ClassicCounterPage({super.key});
 
   @override
-  State<BasicCounterPage> createState() => _BasicCounterPageState();
+  State<ClassicCounterPage> createState() => _ClassicCounterPageState();
 }
 
-class _BasicCounterPageState extends State<BasicCounterPage> {
+class _ClassicCounterPageState extends State<ClassicCounterPage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -20,7 +20,7 @@ class _BasicCounterPageState extends State<BasicCounterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter Demo'),
+        title: const Text('Classic Counter'),
       ),
       body: Center(
         child: Column(

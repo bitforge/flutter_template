@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/modules/counter/providers/counter.dart';
+import 'package:flutter_template/modules/home/providers/counter.dart';
 
 class RiverpodCounterPage extends ConsumerWidget {
   const RiverpodCounterPage({super.key});
@@ -8,7 +8,7 @@ class RiverpodCounterPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Counter example')),
+      appBar: AppBar(title: const Text('Riverpod counter')),
       body: Center(
         child: Text(
           '${ref.watch(counterProvider)}',

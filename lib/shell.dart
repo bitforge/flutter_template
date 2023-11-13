@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 final currentTabProvider = StateProvider<int>((ref) => 0);
 
@@ -36,7 +36,10 @@ class RootNavigationShell extends ConsumerWidget {
         ],
         currentIndex: currentIndex,
         onTap: (index) {
-          navigationShell.goBranch(index);
+          // A common pattern when using bottom navigation bars is to support navigating
+          // back to the initial location when tapping the item that is  already active.
+          final popToRoot = index == navigationShell.currentIndex;
+          navigationShell.goBranch(index, initialLocation: popToRoot);
           ref.read(currentTabProvider.notifier).state = index;
         },
       ),
