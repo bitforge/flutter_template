@@ -97,7 +97,10 @@ linter:
     - curly_braces_in_flow_control_structures
     - depend_on_referenced_packages
     - deprecated_consistency
-    - diagnostic_describe_all_properties
+
+    # Do not describe all properties, too much work ;)
+    - diagnostic_describe_all_properties: false
+
     - directives_ordering
 
     # we will use environment variables
