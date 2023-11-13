@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/modules/counter/counter.dart';
+import 'package:flutter_template/routes.dart';
 import 'package:flutter_template/theme/color_schemes.dart';
 
 class AwesomeApp extends ConsumerWidget {
@@ -10,8 +10,9 @@ class AwesomeApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     useTransparentStatusBar();
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Awesome New App Name',
+      routerConfig: router,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: lightColorScheme,
@@ -20,7 +21,6 @@ class AwesomeApp extends ConsumerWidget {
         useMaterial3: true,
         colorScheme: darkColorScheme,
       ),
-      home: const RiverpodCounterPage(),
     );
   }
 
