@@ -12,13 +12,19 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            OutlinedButton(
-              child: const Text('Classic Counter'),
-              onPressed: () => context.push('/home/classic'),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: OutlinedButton(
+                child: const Text('Classic Counter'),
+                onPressed: () => context.push('/home/classic'),
+              ),
             ),
-            OutlinedButton(
-              child: const Text('Riverpod Counter'),
-              onPressed: () => context.push('/home/riverpod'),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: OutlinedButton(
+                child: const Text('Riverpod Counter'),
+                onPressed: () => context.push('/home/riverpod'),
+              ),
             ),
           ],
         ),

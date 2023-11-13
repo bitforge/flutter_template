@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 
 final currentTabProvider = StateProvider<int>((ref) => 0);
 
-class RootNavigationShell extends ConsumerWidget {
-  const RootNavigationShell({required this.navigationShell, super.key});
+class RootShell extends ConsumerWidget {
+  const RootShell({required this.navigationShell, super.key});
 
   final StatefulNavigationShell navigationShell;
 
@@ -26,8 +26,8 @@ class RootNavigationShell extends ConsumerWidget {
             label: 'Cats',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.public),
-            label: 'Web',
+            icon: Icon(Icons.more_horiz),
+            label: 'More',
           ),
           // BottomNavigationBarItem(
           //   icon: Icon(Icons.more_horiz),
