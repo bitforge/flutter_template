@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_template/routes.dart';
+import 'package:flutter_template/router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AwesomeApp extends StatelessWidget {

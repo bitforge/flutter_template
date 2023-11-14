@@ -14,13 +14,22 @@ final router = GoRouter(
       builder: (context, state, navigationShell) => RootShell(navigationShell: navigationShell),
       branches: [
         /// Home
-        StatefulShellBranch(routes: homeRoutes),
+        StatefulShellBranch(
+          routes: homeRoutes,
+          initialLocation: '/home',
+        ),
 
         /// Cats
-        StatefulShellBranch(routes: catRoutes),
+        StatefulShellBranch(
+          routes: catRoutes,
+          initialLocation: '/cats',
+        ),
 
         /// Web
-        StatefulShellBranch(routes: webRoutes),
+        StatefulShellBranch(
+          routes: moreRoutes,
+          initialLocation: '/more',
+        ),
       ],
     ),
   ],
