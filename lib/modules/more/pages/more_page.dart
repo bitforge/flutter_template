@@ -14,7 +14,7 @@ class MorePage extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(4.0),
-              child: OutlinedButton(
+              child: ElevatedButton(
                 child: const Text('Launch Browser'),
                 onPressed: () => launchUrl(
                   Uri.parse('https://bitforge.ch'),

@@ -14,14 +14,14 @@ class HomePage extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(4.0),
-              child: OutlinedButton(
+              child: ElevatedButton(
                 child: const Text('Classic Counter'),
                 onPressed: () => context.push('/home/classic'),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(4.0),
-              child: OutlinedButton(
+              child: ElevatedButton(
                 child: const Text('Riverpod Counter'),
                 onPressed: () => context.push('/home/riverpod'),
               ),

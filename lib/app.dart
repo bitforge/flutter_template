@@ -1,24 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_template/routes.dart';
-import 'package:flutter_template/theme/color_schemes.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AwesomeApp extends StatelessWidget {
   const AwesomeApp({super.key});
 
+  // Your app name
+  static const title = 'Awesome New App Name';
+
+  // Basic initial theme
+  // Material 3 theme builders:
+  // - https://m3.material.io/theme-builder
+  // - https://docs.flexcolorscheme.com
+  // - https://appainter.dev
+  static const useMaterial3 = false;
+  static const seedColor = Colors.pink;
+  static final textTheme = GoogleFonts.robotoTextTheme();
+
   @override
   Widget build(BuildContext context) {
-    //useTransparentStatusBar();
+    useTransparentStatusBar();
     return MaterialApp.router(
-      title: 'Awesome New App Name',
+      title: title,
       routerConfig: router,
       theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: lightColorScheme,
+        useMaterial3: useMaterial3,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: seedColor,
+        ),
+        textTheme: textTheme,
       ),
       darkTheme: ThemeData(
-        useMaterial3: true,
-        colorScheme: darkColorScheme,
+        useMaterial3: useMaterial3,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: seedColor,
+          brightness: Brightness.dark,
+        ),
+        textTheme: textTheme,
       ),
     );
   }
