@@ -8,6 +8,8 @@ environment:
   sdk: ">=3.1.5 <4.0.0"
 
 dependencies:
+  cats_api:
+    path: api/cats
   cupertino_icons: ^1.0.2
   easy_localization: ^3.0.3
   flutter:
