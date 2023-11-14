@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,14 +16,14 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: ElevatedButton(
-                child: const Text('Classic Counter'),
+                child: Text('home.counter_classic'.tr()),
                 onPressed: () => context.push('/home/classic'),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: ElevatedButton(
-                child: const Text('Riverpod Counter'),
+                child: Text('home.counter_riverpod'.tr()),
                 onPressed: () => context.push('/home/riverpod'),
               ),
             ),

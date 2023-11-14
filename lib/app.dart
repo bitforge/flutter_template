@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_template/router.dart';
@@ -24,6 +25,9 @@ class AwesomeApp extends StatelessWidget {
     return MaterialApp.router(
       title: title,
       routerConfig: router,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       theme: ThemeData(
         useMaterial3: useMaterial3,
         colorScheme: ColorScheme.fromSeed(

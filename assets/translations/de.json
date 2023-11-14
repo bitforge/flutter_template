@@ -1,0 +1,7 @@
+{
+    "home": {
+        "counter_classic": "Klassicher Counter",
+        "counter_riverpod": "Riverpod Counter",
+        "counter_text": "Du hast den Button so oft gedrückt:"
+    }
+}

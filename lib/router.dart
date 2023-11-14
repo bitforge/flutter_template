@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_template/keys.dart';
+import 'package:flutter_template/constants/keys.dart';
 import 'package:flutter_template/modules/cats/routes.dart';
 import 'package:flutter_template/modules/home/routes.dart';
 import 'package:flutter_template/modules/more/routes.dart';
