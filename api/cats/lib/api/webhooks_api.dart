@@ -10,7 +10,6 @@
 
 part of cats_api;
 
-
 class WebhooksApi {
   WebhooksApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
@@ -23,7 +22,9 @@ class WebhooksApi {
   /// Parameters:
   ///
   /// * [Object] body:
-  Future<Response> webhooksPostWithHttpInfo({ Object? body, }) async {
+  Future<Response> webhooksPostWithHttpInfo({
+    Object? body,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/webhooks';
 
@@ -35,7 +36,6 @@ class WebhooksApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -53,8 +53,12 @@ class WebhooksApi {
   /// Parameters:
   ///
   /// * [Object] body:
-  Future<Object?> webhooksPost({ Object? body, }) async {
-    final response = await webhooksPostWithHttpInfo( body: body, );
+  Future<Object?> webhooksPost({
+    Object? body,
+  }) async {
+    final response = await webhooksPostWithHttpInfo(
+      body: body,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -62,8 +66,10 @@ class WebhooksApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }

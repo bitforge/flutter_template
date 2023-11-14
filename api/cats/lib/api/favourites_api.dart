@@ -10,7 +10,6 @@
 
 part of cats_api;
 
-
 class FavouritesApi {
   FavouritesApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
@@ -23,15 +22,18 @@ class FavouritesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] favouriteId (required):
   ///
   /// * [String] contentType:
-  Future<Response> favouritesFavouriteIdDeleteWithHttpInfo(String xApiKey, String favouriteId, { String? contentType, }) async {
+  Future<Response> favouritesFavouriteIdDeleteWithHttpInfo(
+    String xApiKey,
+    String favouriteId, {
+    String? contentType,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/favourites/{favourite_id}'
-      .replaceAll('{favourite_id}', favouriteId);
+    final path = r'/favourites/{favourite_id}'.replaceAll('{favourite_id}', favouriteId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -46,7 +48,6 @@ class FavouritesApi {
     headerParams[r'x-api-key'] = parameterToString(xApiKey);
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -64,13 +65,21 @@ class FavouritesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] favouriteId (required):
   ///
   /// * [String] contentType:
-  Future<void> favouritesFavouriteIdDelete(String xApiKey, String favouriteId, { String? contentType, }) async {
-    final response = await favouritesFavouriteIdDeleteWithHttpInfo(xApiKey, favouriteId,  contentType: contentType, );
+  Future<void> favouritesFavouriteIdDelete(
+    String xApiKey,
+    String favouriteId, {
+    String? contentType,
+  }) async {
+    final response = await favouritesFavouriteIdDeleteWithHttpInfo(
+      xApiKey,
+      favouriteId,
+      contentType: contentType,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -83,15 +92,18 @@ class FavouritesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] favouriteId (required):
   ///
   /// * [String] contentType:
-  Future<Response> favouritesFavouriteIdGetWithHttpInfo(String xApiKey, String favouriteId, { String? contentType, }) async {
+  Future<Response> favouritesFavouriteIdGetWithHttpInfo(
+    String xApiKey,
+    String favouriteId, {
+    String? contentType,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/favourites/{favourite_id}'
-      .replaceAll('{favourite_id}', favouriteId);
+    final path = r'/favourites/{favourite_id}'.replaceAll('{favourite_id}', favouriteId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -106,7 +118,6 @@ class FavouritesApi {
     headerParams[r'x-api-key'] = parameterToString(xApiKey);
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -124,13 +135,21 @@ class FavouritesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] favouriteId (required):
   ///
   /// * [String] contentType:
-  Future<void> favouritesFavouriteIdGet(String xApiKey, String favouriteId, { String? contentType, }) async {
-    final response = await favouritesFavouriteIdGetWithHttpInfo(xApiKey, favouriteId,  contentType: contentType, );
+  Future<void> favouritesFavouriteIdGet(
+    String xApiKey,
+    String favouriteId, {
+    String? contentType,
+  }) async {
+    final response = await favouritesFavouriteIdGetWithHttpInfo(
+      xApiKey,
+      favouriteId,
+      contentType: contentType,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -143,10 +162,13 @@ class FavouritesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] contentType:
-  Future<Response> favouritesGetWithHttpInfo(String xApiKey, { String? contentType, }) async {
+  Future<Response> favouritesGetWithHttpInfo(
+    String xApiKey, {
+    String? contentType,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/favourites';
 
@@ -164,7 +186,6 @@ class FavouritesApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -181,11 +202,17 @@ class FavouritesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] contentType:
-  Future<Object?> favouritesGet(String xApiKey, { String? contentType, }) async {
-    final response = await favouritesGetWithHttpInfo(xApiKey,  contentType: contentType, );
+  Future<Object?> favouritesGet(
+    String xApiKey, {
+    String? contentType,
+  }) async {
+    final response = await favouritesGetWithHttpInfo(
+      xApiKey,
+      contentType: contentType,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -193,8 +220,10 @@ class FavouritesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -206,12 +235,16 @@ class FavouritesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] contentType:
   ///
   /// * [Object] body:
-  Future<Response> favouritesPostWithHttpInfo(String xApiKey, { String? contentType, Object? body, }) async {
+  Future<Response> favouritesPostWithHttpInfo(
+    String xApiKey, {
+    String? contentType,
+    Object? body,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/favourites';
 
@@ -229,7 +262,6 @@ class FavouritesApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -246,13 +278,21 @@ class FavouritesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] contentType:
   ///
   /// * [Object] body:
-  Future<Object?> favouritesPost(String xApiKey, { String? contentType, Object? body, }) async {
-    final response = await favouritesPostWithHttpInfo(xApiKey,  contentType: contentType, body: body, );
+  Future<Object?> favouritesPost(
+    String xApiKey, {
+    String? contentType,
+    Object? body,
+  }) async {
+    final response = await favouritesPostWithHttpInfo(
+      xApiKey,
+      contentType: contentType,
+      body: body,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -260,8 +300,10 @@ class FavouritesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }

@@ -10,7 +10,6 @@
 
 part of cats_api;
 
-
 class VotesApi {
   VotesApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
@@ -23,15 +22,18 @@ class VotesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] voteId (required):
   ///
   /// * [String] contentType:
-  Future<Response> voteVoteIdDeleteWithHttpInfo(String xApiKey, String voteId, { String? contentType, }) async {
+  Future<Response> voteVoteIdDeleteWithHttpInfo(
+    String xApiKey,
+    String voteId, {
+    String? contentType,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/vote/{vote_id}'
-      .replaceAll('{vote_id}', voteId);
+    final path = r'/vote/{vote_id}'.replaceAll('{vote_id}', voteId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -46,7 +48,6 @@ class VotesApi {
     headerParams[r'x-api-key'] = parameterToString(xApiKey);
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -64,13 +65,21 @@ class VotesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] voteId (required):
   ///
   /// * [String] contentType:
-  Future<void> voteVoteIdDelete(String xApiKey, String voteId, { String? contentType, }) async {
-    final response = await voteVoteIdDeleteWithHttpInfo(xApiKey, voteId,  contentType: contentType, );
+  Future<void> voteVoteIdDelete(
+    String xApiKey,
+    String voteId, {
+    String? contentType,
+  }) async {
+    final response = await voteVoteIdDeleteWithHttpInfo(
+      xApiKey,
+      voteId,
+      contentType: contentType,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -83,10 +92,13 @@ class VotesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] contentType:
-  Future<Response> votesGetWithHttpInfo(String xApiKey, { String? contentType, }) async {
+  Future<Response> votesGetWithHttpInfo(
+    String xApiKey, {
+    String? contentType,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/votes';
 
@@ -104,7 +116,6 @@ class VotesApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -121,11 +132,17 @@ class VotesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] contentType:
-  Future<Object?> votesGet(String xApiKey, { String? contentType, }) async {
-    final response = await votesGetWithHttpInfo(xApiKey,  contentType: contentType, );
+  Future<Object?> votesGet(
+    String xApiKey, {
+    String? contentType,
+  }) async {
+    final response = await votesGetWithHttpInfo(
+      xApiKey,
+      contentType: contentType,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -133,8 +150,10 @@ class VotesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -146,12 +165,16 @@ class VotesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] contentType:
   ///
   /// * [Object] body:
-  Future<Response> votesPostWithHttpInfo(String xApiKey, { String? contentType, Object? body, }) async {
+  Future<Response> votesPostWithHttpInfo(
+    String xApiKey, {
+    String? contentType,
+    Object? body,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/votes';
 
@@ -169,7 +192,6 @@ class VotesApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'POST',
@@ -186,13 +208,21 @@ class VotesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] contentType:
   ///
   /// * [Object] body:
-  Future<Object?> votesPost(String xApiKey, { String? contentType, Object? body, }) async {
-    final response = await votesPostWithHttpInfo(xApiKey,  contentType: contentType, body: body, );
+  Future<Object?> votesPost(
+    String xApiKey, {
+    String? contentType,
+    Object? body,
+  }) async {
+    final response = await votesPostWithHttpInfo(
+      xApiKey,
+      contentType: contentType,
+      body: body,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -200,8 +230,10 @@ class VotesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -213,15 +245,18 @@ class VotesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] voteId (required):
   ///
   /// * [String] contentType:
-  Future<Response> votesVoteIdGetWithHttpInfo(String xApiKey, String voteId, { String? contentType, }) async {
+  Future<Response> votesVoteIdGetWithHttpInfo(
+    String xApiKey,
+    String voteId, {
+    String? contentType,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/votes/{vote_id}'
-      .replaceAll('{vote_id}', voteId);
+    final path = r'/votes/{vote_id}'.replaceAll('{vote_id}', voteId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -236,7 +271,6 @@ class VotesApi {
     headerParams[r'x-api-key'] = parameterToString(xApiKey);
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -254,13 +288,21 @@ class VotesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   
+  ///
   ///
   /// * [String] voteId (required):
   ///
   /// * [String] contentType:
-  Future<void> votesVoteIdGet(String xApiKey, String voteId, { String? contentType, }) async {
-    final response = await votesVoteIdGetWithHttpInfo(xApiKey, voteId,  contentType: contentType, );
+  Future<void> votesVoteIdGet(
+    String xApiKey,
+    String voteId, {
+    String? contentType,
+  }) async {
+    final response = await votesVoteIdGetWithHttpInfo(
+      xApiKey,
+      voteId,
+      contentType: contentType,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

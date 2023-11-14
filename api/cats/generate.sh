@@ -31,19 +31,19 @@ npx @openapitools/openapi-generator-cli generate \
 
 # Replace default basePath in Cats API, not sure how to set {{endpoint}} mustache variable
 # Could be replaced with `Apiclient(basePath: 'https://api.thecatapi.com/v1')`
-sed -i "" "s/this\.basePath = '.*'/this\.basePath = 'https:\/\/api.thecatapi.com\/v1'/g" lib/api_client.dart
+# sed -i "" "s/this\.basePath = '.*'/this\.basePath = 'https:\/\/api.thecatapi.com\/v1'/g" lib/api_client.dart
 
 # Remove empty tests
 rm -rf test
 
-# Get pub.dev packages
+# Upgrade dependencies
+dart pub upgrade --major-versions
+
+# Get pub packages
 dart pub get
 
 # Auto format dart files
 dart format . -l 120
-
-# Auto fix linter issues
-dart fix --apply
 
 CLR='\033[0;32m'
 EOC='\033[0m'

@@ -10,7 +10,6 @@
 
 part of cats_api;
 
-
 class ImagesApi {
   ImagesApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
@@ -25,8 +24,10 @@ class ImagesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey:
-  ///   [optional]  will save this request to your account analytics 
-  Future<Response> imagesBkIEhN3pGGetWithHttpInfo({ String? xApiKey, }) async {
+  ///   [optional]  will save this request to your account analytics
+  Future<Response> imagesBkIEhN3pGGetWithHttpInfo({
+    String? xApiKey,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/images/BkIEhN3pG';
 
@@ -42,7 +43,6 @@ class ImagesApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -62,9 +62,13 @@ class ImagesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey:
-  ///   [optional]  will save this request to your account analytics 
-  Future<Object?> imagesBkIEhN3pGGet({ String? xApiKey, }) async {
-    final response = await imagesBkIEhN3pGGetWithHttpInfo( xApiKey: xApiKey, );
+  ///   [optional]  will save this request to your account analytics
+  Future<Object?> imagesBkIEhN3pGGet({
+    String? xApiKey,
+  }) async {
+    final response = await imagesBkIEhN3pGGetWithHttpInfo(
+      xApiKey: xApiKey,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -72,8 +76,10 @@ class ImagesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -87,7 +93,7 @@ class ImagesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   - will return all the images from your account 
+  ///   - will return all the images from your account
   ///
   /// * [String] contentType:
   ///
@@ -99,7 +105,13 @@ class ImagesApi {
   ///
   /// * [String] order:
   ///   [Optional] only works if account_id is present, either ASC or DESC - ascending or descending.
-  Future<Response> imagesGetWithHttpInfo(String xApiKey, { String? contentType, int? limit, int? page, String? order, }) async {
+  Future<Response> imagesGetWithHttpInfo(
+    String xApiKey, {
+    String? contentType,
+    int? limit,
+    int? page,
+    String? order,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/images/';
 
@@ -127,7 +139,6 @@ class ImagesApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -146,7 +157,7 @@ class ImagesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   - will return all the images from your account 
+  ///   - will return all the images from your account
   ///
   /// * [String] contentType:
   ///
@@ -158,8 +169,20 @@ class ImagesApi {
   ///
   /// * [String] order:
   ///   [Optional] only works if account_id is present, either ASC or DESC - ascending or descending.
-  Future<Object?> imagesGet(String xApiKey, { String? contentType, int? limit, int? page, String? order, }) async {
-    final response = await imagesGetWithHttpInfo(xApiKey,  contentType: contentType, limit: limit, page: page, order: order, );
+  Future<Object?> imagesGet(
+    String xApiKey, {
+    String? contentType,
+    int? limit,
+    int? page,
+    String? order,
+  }) async {
+    final response = await imagesGetWithHttpInfo(
+      xApiKey,
+      contentType: contentType,
+      limit: limit,
+      page: page,
+      order: order,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -167,8 +190,10 @@ class ImagesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -180,18 +205,22 @@ class ImagesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   - only you can delete breeds from your images 
+  ///   - only you can delete breeds from your images
   ///
   /// * [String] imageId (required):
   ///
   /// * [String] breedId (required):
   ///
   /// * [String] contentType:
-  Future<Response> imagesImageIdBreedsBreedIdDeleteWithHttpInfo(String xApiKey, String imageId, String breedId, { String? contentType, }) async {
+  Future<Response> imagesImageIdBreedsBreedIdDeleteWithHttpInfo(
+    String xApiKey,
+    String imageId,
+    String breedId, {
+    String? contentType,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/images/{image_id}/breeds/{breed_id}'
-      .replaceAll('{image_id}', imageId)
-      .replaceAll('{breed_id}', breedId);
+    final path =
+        r'/images/{image_id}/breeds/{breed_id}'.replaceAll('{image_id}', imageId).replaceAll('{breed_id}', breedId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -206,7 +235,6 @@ class ImagesApi {
     headerParams[r'x-api-key'] = parameterToString(xApiKey);
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -224,15 +252,25 @@ class ImagesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   - only you can delete breeds from your images 
+  ///   - only you can delete breeds from your images
   ///
   /// * [String] imageId (required):
   ///
   /// * [String] breedId (required):
   ///
   /// * [String] contentType:
-  Future<void> imagesImageIdBreedsBreedIdDelete(String xApiKey, String imageId, String breedId, { String? contentType, }) async {
-    final response = await imagesImageIdBreedsBreedIdDeleteWithHttpInfo(xApiKey, imageId, breedId,  contentType: contentType, );
+  Future<void> imagesImageIdBreedsBreedIdDelete(
+    String xApiKey,
+    String imageId,
+    String breedId, {
+    String? contentType,
+  }) async {
+    final response = await imagesImageIdBreedsBreedIdDeleteWithHttpInfo(
+      xApiKey,
+      imageId,
+      breedId,
+      contentType: contentType,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -247,10 +285,12 @@ class ImagesApi {
   /// * [String] imageId (required):
   ///
   /// * [String] contentType:
-  Future<Response> imagesImageIdBreedsGetWithHttpInfo(String imageId, { String? contentType, }) async {
+  Future<Response> imagesImageIdBreedsGetWithHttpInfo(
+    String imageId, {
+    String? contentType,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/images/{image_id}/breeds'
-      .replaceAll('{image_id}', imageId);
+    final path = r'/images/{image_id}/breeds'.replaceAll('{image_id}', imageId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -264,7 +304,6 @@ class ImagesApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -284,8 +323,14 @@ class ImagesApi {
   /// * [String] imageId (required):
   ///
   /// * [String] contentType:
-  Future<void> imagesImageIdBreedsGet(String imageId, { String? contentType, }) async {
-    final response = await imagesImageIdBreedsGetWithHttpInfo(imageId,  contentType: contentType, );
+  Future<void> imagesImageIdBreedsGet(
+    String imageId, {
+    String? contentType,
+  }) async {
+    final response = await imagesImageIdBreedsGetWithHttpInfo(
+      imageId,
+      contentType: contentType,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -298,17 +343,21 @@ class ImagesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   - for now, you can only tag your own images with a breed  
+  ///   - for now, you can only tag your own images with a breed
   ///
   /// * [String] imageId (required):
   ///
   /// * [String] contentType:
   ///
   /// * [Object] body:
-  Future<Response> imagesImageIdBreedsPostWithHttpInfo(String xApiKey, String imageId, { String? contentType, Object? body, }) async {
+  Future<Response> imagesImageIdBreedsPostWithHttpInfo(
+    String xApiKey,
+    String imageId, {
+    String? contentType,
+    Object? body,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/images/{image_id}/breeds'
-      .replaceAll('{image_id}', imageId);
+    final path = r'/images/{image_id}/breeds'.replaceAll('{image_id}', imageId);
 
     // ignore: prefer_final_locals
     Object? postBody = body;
@@ -323,7 +372,6 @@ class ImagesApi {
     headerParams[r'x-api-key'] = parameterToString(xApiKey);
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -341,15 +389,25 @@ class ImagesApi {
   /// Parameters:
   ///
   /// * [String] xApiKey (required):
-  ///   - for now, you can only tag your own images with a breed  
+  ///   - for now, you can only tag your own images with a breed
   ///
   /// * [String] imageId (required):
   ///
   /// * [String] contentType:
   ///
   /// * [Object] body:
-  Future<void> imagesImageIdBreedsPost(String xApiKey, String imageId, { String? contentType, Object? body, }) async {
-    final response = await imagesImageIdBreedsPostWithHttpInfo(xApiKey, imageId,  contentType: contentType, body: body, );
+  Future<void> imagesImageIdBreedsPost(
+    String xApiKey,
+    String imageId, {
+    String? contentType,
+    Object? body,
+  }) async {
+    final response = await imagesImageIdBreedsPostWithHttpInfo(
+      xApiKey,
+      imageId,
+      contentType: contentType,
+      body: body,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -366,10 +424,13 @@ class ImagesApi {
   /// * [String] contentType:
   ///
   /// * [String] xApiKey:
-  Future<Response> imagesImageIdDeleteWithHttpInfo(String imageId, { String? contentType, String? xApiKey, }) async {
+  Future<Response> imagesImageIdDeleteWithHttpInfo(
+    String imageId, {
+    String? contentType,
+    String? xApiKey,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/images/{image_id}'
-      .replaceAll('{image_id}', imageId);
+    final path = r'/images/{image_id}'.replaceAll('{image_id}', imageId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -386,7 +447,6 @@ class ImagesApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -408,8 +468,16 @@ class ImagesApi {
   /// * [String] contentType:
   ///
   /// * [String] xApiKey:
-  Future<void> imagesImageIdDelete(String imageId, { String? contentType, String? xApiKey, }) async {
-    final response = await imagesImageIdDeleteWithHttpInfo(imageId,  contentType: contentType, xApiKey: xApiKey, );
+  Future<void> imagesImageIdDelete(
+    String imageId, {
+    String? contentType,
+    String? xApiKey,
+  }) async {
+    final response = await imagesImageIdDeleteWithHttpInfo(
+      imageId,
+      contentType: contentType,
+      xApiKey: xApiKey,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -448,7 +516,17 @@ class ImagesApi {
   ///
   /// * [int] limit:
   ///   [optional] number of results to return, up to 25 with a valid API-Key
-  Future<Response> imagesSearchGetWithHttpInfo({ String? contentType, String? xApiKey, String? size, String? mimeTypes, String? format, bool? hasBreeds, String? order, int? page, int? limit, }) async {
+  Future<Response> imagesSearchGetWithHttpInfo({
+    String? contentType,
+    String? xApiKey,
+    String? size,
+    String? mimeTypes,
+    String? format,
+    bool? hasBreeds,
+    String? order,
+    int? page,
+    int? limit,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/images/search';
 
@@ -490,7 +568,6 @@ class ImagesApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -533,8 +610,28 @@ class ImagesApi {
   ///
   /// * [int] limit:
   ///   [optional] number of results to return, up to 25 with a valid API-Key
-  Future<Object?> imagesSearchGet({ String? contentType, String? xApiKey, String? size, String? mimeTypes, String? format, bool? hasBreeds, String? order, int? page, int? limit, }) async {
-    final response = await imagesSearchGetWithHttpInfo( contentType: contentType, xApiKey: xApiKey, size: size, mimeTypes: mimeTypes, format: format, hasBreeds: hasBreeds, order: order, page: page, limit: limit, );
+  Future<Object?> imagesSearchGet({
+    String? contentType,
+    String? xApiKey,
+    String? size,
+    String? mimeTypes,
+    String? format,
+    bool? hasBreeds,
+    String? order,
+    int? page,
+    int? limit,
+  }) async {
+    final response = await imagesSearchGetWithHttpInfo(
+      contentType: contentType,
+      xApiKey: xApiKey,
+      size: size,
+      mimeTypes: mimeTypes,
+      format: format,
+      hasBreeds: hasBreeds,
+      order: order,
+      page: page,
+      limit: limit,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -542,8 +639,10 @@ class ImagesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -568,7 +667,13 @@ class ImagesApi {
   ///
   /// * [String] breedIds:
   ///   [optional] comma separated string of breed ids contained in the image
-  Future<Response> imagesUploadPostWithHttpInfo(String xApiKey, { String? contentType, MultipartFile? file, String? subId, String? breedIds, }) async {
+  Future<Response> imagesUploadPostWithHttpInfo(
+    String xApiKey, {
+    String? contentType,
+    MultipartFile? file,
+    String? subId,
+    String? breedIds,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/images/upload';
 
@@ -634,8 +739,20 @@ class ImagesApi {
   ///
   /// * [String] breedIds:
   ///   [optional] comma separated string of breed ids contained in the image
-  Future<Object?> imagesUploadPost(String xApiKey, { String? contentType, MultipartFile? file, String? subId, String? breedIds, }) async {
-    final response = await imagesUploadPostWithHttpInfo(xApiKey,  contentType: contentType, file: file, subId: subId, breedIds: breedIds, );
+  Future<Object?> imagesUploadPost(
+    String xApiKey, {
+    String? contentType,
+    MultipartFile? file,
+    String? subId,
+    String? breedIds,
+  }) async {
+    final response = await imagesUploadPostWithHttpInfo(
+      xApiKey,
+      contentType: contentType,
+      file: file,
+      subId: subId,
+      breedIds: breedIds,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -643,8 +760,10 @@ class ImagesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }

@@ -10,7 +10,6 @@
 
 part of cats_api;
 
-
 class FactsApi {
   FactsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
@@ -31,10 +30,14 @@ class FactsApi {
   /// * [int] page:
   ///
   /// * [String] order:
-  Future<Response> breedsBreedIdFactsGetWithHttpInfo(String breedId, { int? limit, int? page, String? order, }) async {
+  Future<Response> breedsBreedIdFactsGetWithHttpInfo(
+    String breedId, {
+    int? limit,
+    int? page,
+    String? order,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/breeds/{breed_id}/facts'
-      .replaceAll('{breed_id}', breedId);
+    final path = r'/breeds/{breed_id}/facts'.replaceAll('{breed_id}', breedId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -54,7 +57,6 @@ class FactsApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -80,8 +82,18 @@ class FactsApi {
   /// * [int] page:
   ///
   /// * [String] order:
-  Future<Object?> breedsBreedIdFactsGet(String breedId, { int? limit, int? page, String? order, }) async {
-    final response = await breedsBreedIdFactsGetWithHttpInfo(breedId,  limit: limit, page: page, order: order, );
+  Future<Object?> breedsBreedIdFactsGet(
+    String breedId, {
+    int? limit,
+    int? page,
+    String? order,
+  }) async {
+    final response = await breedsBreedIdFactsGetWithHttpInfo(
+      breedId,
+      limit: limit,
+      page: page,
+      order: order,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -89,8 +101,10 @@ class FactsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }
@@ -112,7 +126,6 @@ class FactsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -137,8 +150,10 @@ class FactsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
     }
     return null;
   }

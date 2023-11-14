@@ -35,8 +35,6 @@ part 'api/images_api.dart';
 part 'api/votes_api.dart';
 part 'api/webhooks_api.dart';
 
-
-
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.
 var defaultApiClient = ApiClient();
