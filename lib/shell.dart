@@ -29,10 +29,6 @@ class RootShell extends ConsumerWidget {
             icon: Icon(Icons.more_horiz),
             label: 'More',
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.more_horiz),
-          //   label: 'More',
-          // ),
         ],
         currentIndex: currentIndex,
         onTap: (index) {
