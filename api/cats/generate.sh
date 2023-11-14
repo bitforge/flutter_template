@@ -25,7 +25,6 @@ npx @openapitools/openapi-generator-cli generate \
     --additional-properties=pubAuthor=bitforge \
     --additional-properties=pubLibrary=cats_api \
     --additional-properties=pubDescription="Cats\ as\ a\ Service" \
-    --additional-properties=basePath=https://api.thecatapi.com\
     --additional-properties=pubHomepage=https://developers.thecatapi.com \
     --additional-properties=pubRepository=https://github.com/thatapicompany/apis
 
