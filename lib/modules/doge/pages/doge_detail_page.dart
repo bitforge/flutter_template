@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/modules/doge/widgets/doge_image.dart';
 import 'package:share_plus/share_plus.dart';
@@ -11,12 +12,12 @@ class DogeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Such Doge! Much wow!'),
+        title: Text('doge.detail'.tr()),
         actions: [
           IconButton(
             onPressed: () => _shareUrl(imageUrl),
             icon: const Icon(Icons.share),
-          )
+          ),
         ],
       ),
       body: Center(
@@ -26,6 +27,6 @@ class DogeDetailPage extends StatelessWidget {
   }
 
   void _shareUrl(String imageUrl) {
-    Share.share(imageUrl, subject: 'Such Doge! Much wow!');
+    Share.share(imageUrl, subject: 'doge.share_subject'.tr());
   }
 }

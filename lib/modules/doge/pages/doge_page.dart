@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/modules/doge/providers/doge_images_provider.dart';
@@ -15,7 +16,7 @@ class DogePage extends ConsumerWidget {
     final shibeImages = ref.watch(dogeImagesProvider(imageCount));
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Shibes are the best!')),
+      appBar: AppBar(title: Text('doge.title'.tr())),
       body: shibeImages.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, stack) => ErrorWidget(err),

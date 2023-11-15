@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -17,18 +18,18 @@ class RootShell extends ConsumerWidget {
       body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: const Icon(Icons.home),
+            label: 'home.nav'.tr(),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pets),
-            label: 'Doge',
+            icon: const Icon(Icons.pets),
+            label: 'doge.nav'.tr(),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.more_horiz),
-            label: 'More',
+            icon: const Icon(Icons.more_horiz),
+            label: 'more.nav'.tr(),
           ),
         ],
         currentIndex: currentIndex,

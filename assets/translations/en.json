@@ -1,7 +1,21 @@
 {
-    "home": {
-        "counter_classic": "Classic Counter",
-        "counter_riverpod": "Rivepod Counter",
-        "counter_text": "You have pushed the button this many times:"
-    }
+  "home": {
+    "nav": "Home",
+    "title": "Counters",
+    "counter_classic": "Classic",
+    "counter_riverpod": "Rivepod",
+    "counter_text": "You have pushed the button this many times:"
+  },
+  "doge": {
+    "nav": "Doge",
+    "title": "Doge as a Service!",
+    "detail": "Such Doge! Much wow!",
+    "share_subject": "Such Doge! Much wow!"
+  },
+  "more": {
+    "nav": "More",
+    "title": "More",
+    "launch_browser": "Launch Browser",
+    "change_language": "Change Language"
+  }
 }

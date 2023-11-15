@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final counterProvider = StateNotifierProvider<Counter, int>((ref) => Counter());
 
+/// Simple counter provider
 class Counter extends StateNotifier<int> {
   Counter() : super(0);
 
