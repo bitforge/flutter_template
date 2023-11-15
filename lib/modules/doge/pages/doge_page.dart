@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/modules/doge/providers/doge_imges_provider.dart';
+import 'package:flutter_template/modules/doge/providers/doge_images_provider.dart';
 import 'package:flutter_template/modules/doge/widgets/doge_image.dart';
 import 'package:go_router/go_router.dart';
 
 class DogePage extends ConsumerWidget {
   const DogePage({super.key});
 
+  /// Number of doge images shown
+  static const imageCount = 10;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final shibeImages = ref.watch(dogeImagesProvider);
+    final shibeImages = ref.watch(dogeImagesProvider(imageCount));
 
     return Scaffold(
       appBar: AppBar(title: const Text('Shibes are the best!')),
@@ -19,7 +22,7 @@ class DogePage extends ConsumerWidget {
         data: (images) {
           // Return a SliverGrid with card of images
           return RefreshIndicator(
-            onRefresh: () => ref.refresh(dogeImagesProvider.future),
+            onRefresh: () => ref.refresh(dogeImagesProvider(imageCount).future),
             child: CustomScrollView(
               slivers: [
                 SliverPadding(
