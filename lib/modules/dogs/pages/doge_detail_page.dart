@@ -1,10 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_template/modules/dogs/widgets/shibe_image.dart';
 
 class DogeDetailPage extends StatelessWidget {
-  const DogeDetailPage({required this.imgUrl, super.key});
+  const DogeDetailPage({required this.imageUrl, super.key});
 
-  final String imgUrl;
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -13,17 +13,7 @@ class DogeDetailPage extends StatelessWidget {
         title: const Text('Such Doge! Much wow!'),
       ),
       body: Center(
-        child: Hero(
-          tag: imgUrl,
-          child: CachedNetworkImage(
-            imageUrl: imgUrl,
-            fit: BoxFit.contain,
-            fadeInDuration: const Duration(milliseconds: 200),
-            placeholder: (context, url) => ColoredBox(
-              color: Theme.of(context).colorScheme.outline,
-            ),
-          ),
-        ),
+        child: ShibeImage(imageUrl: imageUrl),
       ),
     );
   }

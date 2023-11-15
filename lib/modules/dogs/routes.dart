@@ -7,7 +7,7 @@ final dogRoutes = [
     GoRoute(
       path: 'detail/:imgUrl',
       builder: (context, state) => DogeDetailPage(
-        imgUrl: Uri.decodeComponent(state.pathParameters['imgUrl']!),
+        imageUrl: Uri.decodeComponent(state.pathParameters['imgUrl']!),
       ),
     ),
   ]),
