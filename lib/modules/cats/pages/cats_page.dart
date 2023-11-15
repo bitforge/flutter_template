@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/modules/cats/providers/cats_images.dart';
@@ -25,14 +26,18 @@ class CatsPage extends ConsumerWidget {
                     sliver: SliverGrid(
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
+                        crossAxisSpacing: 8,
+                        mainAxisSpacing: 8,
                       ),
                       delegate: SliverChildBuilderDelegate(
                         (context, index) {
                           final image = images[index];
-                          return Card(
-                            child: Image.network(
-                              image,
-                              fit: BoxFit.cover,
+                          return CachedNetworkImage(
+                            imageUrl: image,
+                            fit: BoxFit.cover,
+                            fadeInDuration: const Duration(milliseconds: 200),
+                            placeholder: (context, url) => ColoredBox(
+                              color: Theme.of(context).colorScheme.outline,
                             ),
                           );
                         },
