@@ -16,5 +16,8 @@
     "title": "Mehr",
     "launch_browser": "Browser öffnen",
     "change_language": "Sprache ändern"
+  },
+  "errors": {
+    "not_implemented_yet": "Sorry, daran arbeiten wir noch!"
   }
 }

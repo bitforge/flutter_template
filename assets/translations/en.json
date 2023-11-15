@@ -16,5 +16,8 @@
     "title": "More",
     "launch_browser": "Launch Browser",
     "change_language": "Change Language"
+  },
+  "errors": {
+    "not_implemented_yet": "Sorry, we're still working on this feature!"
   }
 }
