@@ -1,8 +1,9 @@
-import 'dart:convert';
 import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:http/http.dart' as http;
+
+final dio = Dio();
 
 /// Simple shibes as service API
 /// Docs: https://shibe.online
@@ -11,14 +12,12 @@ import 'package:http/http.dart' as http;
 /// https://github.com/bitforge/myswica/blob/main/api/myswicaapi/generate.sh
 ///
 final shibeImagesProvider = FutureProvider.autoDispose<List<String>>((ref) async {
-  final shibeApiUrl = Uri.parse('http://shibe.online/api/shibes?count=10');
-  final shibeResponse = await http.get(shibeApiUrl);
+  final shibeResponse = await dio.get<List<dynamic>>('http://shibe.online/api/shibes?count=10');
 
-  if (shibeResponse.statusCode != 200) {
+  if (shibeResponse.statusCode != 200 || shibeResponse.data == null) {
     log('Failed to get shibes: $shibeResponse');
     return [];
   }
 
-  final resultList = jsonDecode(shibeResponse.body) as List<dynamic>;
-  return resultList.cast<String>();
+  return List<String>.from(shibeResponse.data!);
 });
