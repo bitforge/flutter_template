@@ -3,8 +3,7 @@
     "nav": "Home",
     "title": "Counters",
     "counter_classic": "Classic",
-    "counter_riverpod": "Rivepod",
-    "counter_text": "You have pushed the button this many times:"
+    "counter_riverpod": "Riverpod"
   },
   "doge": {
     "nav": "Doge",

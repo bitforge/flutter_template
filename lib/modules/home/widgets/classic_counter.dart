@@ -1,14 +1,13 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class ClassicCounterPage extends StatefulWidget {
-  const ClassicCounterPage({super.key});
+class ClassicCounter extends StatefulWidget {
+  const ClassicCounter({super.key});
 
   @override
-  State<ClassicCounterPage> createState() => _ClassicCounterPageState();
+  State<ClassicCounter> createState() => _ClassicCounterState();
 }
 
-class _ClassicCounterPageState extends State<ClassicCounterPage> {
+class _ClassicCounterState extends State<ClassicCounter> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -20,17 +19,13 @@ class _ClassicCounterPageState extends State<ClassicCounterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('home.counter_classic'.tr()),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('home.counter_text'.tr()),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
           ],
         ),
