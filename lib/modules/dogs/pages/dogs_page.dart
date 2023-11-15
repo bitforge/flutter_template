@@ -9,7 +9,7 @@ class DogsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dogImages = ref.watch(dogImagesProvider);
+    final dogImages = ref.watch(shibeImagesProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text('Shibes are the best!')),
@@ -19,7 +19,7 @@ class DogsPage extends ConsumerWidget {
         data: (images) {
           // Return a SliverGrid with card of images
           return RefreshIndicator(
-            onRefresh: () => ref.refresh(dogImagesProvider.future),
+            onRefresh: () => ref.refresh(shibeImagesProvider.future),
             child: CustomScrollView(
               slivers: [
                 SliverPadding(

@@ -27,10 +27,6 @@ class RootShell extends ConsumerWidget {
             label: 'Dogs',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Cats',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.more_horiz),
             label: 'More',
           ),

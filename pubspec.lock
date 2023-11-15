@@ -81,13 +81,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-  cats_api:
-    dependency: "direct main"
-    description:
-      path: "api/cats"
-      relative: true
-    source: path
-    version: "1.6.1"
   characters:
     dependency: transitive
     description:

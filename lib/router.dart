@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_template/constants/keys.dart';
-import 'package:flutter_template/modules/cats/routes.dart';
 import 'package:flutter_template/modules/dogs/routes.dart';
 import 'package:flutter_template/modules/home/routes.dart';
 import 'package:flutter_template/modules/more/routes.dart';
@@ -27,13 +26,6 @@ final router = GoRouter(
           routes: dogRoutes,
           initialLocation: '/dogs',
           navigatorKey: dogsNavigatorKey,
-        ),
-
-        // Cats
-        StatefulShellBranch(
-          routes: catRoutes,
-          initialLocation: '/cats',
-          navigatorKey: catsNavigatorKey,
         ),
 
         // More
