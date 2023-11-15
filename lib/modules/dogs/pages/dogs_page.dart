@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/modules/dogs/providers/dogs_provider.dart';
+import 'package:go_router/go_router.dart';
 
 class DogsPage extends ConsumerWidget {
   const DogsPage({super.key});
@@ -32,12 +33,18 @@ class DogsPage extends ConsumerWidget {
                     delegate: SliverChildBuilderDelegate(
                       (context, index) {
                         final image = images[index];
-                        return CachedNetworkImage(
-                          imageUrl: image,
-                          fit: BoxFit.cover,
-                          fadeInDuration: const Duration(milliseconds: 200),
-                          placeholder: (context, url) => ColoredBox(
-                            color: Theme.of(context).colorScheme.outline,
+                        return GestureDetector(
+                          onTap: () => context.push('/dogs/detail/${Uri.encodeComponent(image)}'),
+                          child: Hero(
+                            tag: image,
+                            child: CachedNetworkImage(
+                              imageUrl: image,
+                              fit: BoxFit.cover,
+                              fadeInDuration: const Duration(milliseconds: 200),
+                              placeholder: (context, url) => ColoredBox(
+                                color: Theme.of(context).colorScheme.outline,
+                              ),
+                            ),
                           ),
                         );
                       },
