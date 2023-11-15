@@ -20,21 +20,24 @@ class DogsPage extends ConsumerWidget {
             onRefresh: () => ref.refresh(dogImagesProvider.future),
             child: CustomScrollView(
               slivers: [
-                SliverGrid(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                  ),
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      final image = images[index];
-                      return Card(
-                        child: Image.network(
-                          image,
-                          fit: BoxFit.cover,
-                        ),
-                      );
-                    },
-                    childCount: images.length,
+                SliverPadding(
+                  padding: const EdgeInsets.all(8),
+                  sliver: SliverGrid(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        final image = images[index];
+                        return Card(
+                          child: Image.network(
+                            image,
+                            fit: BoxFit.cover,
+                          ),
+                        );
+                      },
+                      childCount: images.length,
+                    ),
                   ),
                 ),
               ],

@@ -15,28 +15,28 @@ final router = GoRouter(
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) => RootShell(navigationShell: navigationShell),
       branches: [
-        /// Home
+        // Home
         StatefulShellBranch(
           routes: homeRoutes,
           initialLocation: '/home',
           navigatorKey: homeNavigatorKey,
         ),
 
-        // Cats
-        // StatefulShellBranch(
-        //   routes: catRoutes,
-        //   initialLocation: '/cats',
-        //   navigatorKey: catsNavigatorKey,
-        // ),
-
-        /// Dogs
+        // Dogs
         StatefulShellBranch(
           routes: dogRoutes,
           initialLocation: '/dogs',
           navigatorKey: dogsNavigatorKey,
         ),
 
-        /// More
+        // Cats
+        StatefulShellBranch(
+          routes: catRoutes,
+          initialLocation: '/cats',
+          navigatorKey: catsNavigatorKey,
+        ),
+
+        // More
         StatefulShellBranch(
           routes: moreRoutes,
           initialLocation: '/more',

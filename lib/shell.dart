@@ -16,18 +16,19 @@ class RootShell extends ConsumerWidget {
     return Scaffold(
       body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.favorite),
-          //   label: 'Cats',
-          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.pets),
             label: 'Dogs',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Cats',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.more_horiz),

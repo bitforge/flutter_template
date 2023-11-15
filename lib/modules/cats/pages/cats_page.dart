@@ -10,7 +10,7 @@ class CatsPage extends ConsumerWidget {
     final catsImages = ref.watch(catsImagesProvider);
 
     return Scaffold(
-        appBar: AppBar(title: const Text('Cats')),
+        appBar: AppBar(title: const Text('Cats as a Service')),
         body: catsImages.when(
           loading: () => const Center(child: CircularProgressIndicator()),
           error: (err, stack) => ErrorWidget(err),
@@ -20,21 +20,24 @@ class CatsPage extends ConsumerWidget {
               onRefresh: () => ref.refresh(catsImagesProvider.future),
               child: CustomScrollView(
                 slivers: [
-                  SliverGrid(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                    ),
-                    delegate: SliverChildBuilderDelegate(
-                      (context, index) {
-                        final image = images[index];
-                        return Card(
-                          child: Image.network(
-                            image,
-                            fit: BoxFit.cover,
-                          ),
-                        );
-                      },
-                      childCount: images.length,
+                  SliverPadding(
+                    padding: const EdgeInsets.all(8),
+                    sliver: SliverGrid(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                      ),
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          final image = images[index];
+                          return Card(
+                            child: Image.network(
+                              image,
+                              fit: BoxFit.cover,
+                            ),
+                          );
+                        },
+                        childCount: images.length,
+                      ),
                     ),
                   ),
                 ],
