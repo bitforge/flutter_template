@@ -24,7 +24,7 @@ class RootShell extends ConsumerWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.pets),
-            label: 'Dogs',
+            label: 'Doge',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.more_horiz),

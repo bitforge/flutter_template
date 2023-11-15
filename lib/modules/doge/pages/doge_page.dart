@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/modules/dogs/providers/dogs_provider.dart';
-import 'package:flutter_template/modules/dogs/widgets/shibe_image.dart';
+import 'package:flutter_template/modules/doge/providers/doge_imges_provider.dart';
+import 'package:flutter_template/modules/doge/widgets/doge_image.dart';
 import 'package:go_router/go_router.dart';
 
-class DogsPage extends ConsumerWidget {
-  const DogsPage({super.key});
+class DogePage extends ConsumerWidget {
+  const DogePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final shibeImages = ref.watch(shibeImagesProvider);
+    final shibeImages = ref.watch(dogeImagesProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text('Shibes are the best!')),
@@ -19,7 +19,7 @@ class DogsPage extends ConsumerWidget {
         data: (images) {
           // Return a SliverGrid with card of images
           return RefreshIndicator(
-            onRefresh: () => ref.refresh(shibeImagesProvider.future),
+            onRefresh: () => ref.refresh(dogeImagesProvider.future),
             child: CustomScrollView(
               slivers: [
                 SliverPadding(
@@ -34,8 +34,8 @@ class DogsPage extends ConsumerWidget {
                       (context, index) {
                         final imageUrl = images[index];
                         return GestureDetector(
-                          onTap: () => context.push('/dogs/detail/${Uri.encodeComponent(imageUrl)}'),
-                          child: ShibeImage(imageUrl: imageUrl),
+                          onTap: () => context.push('/doge/detail/${Uri.encodeComponent(imageUrl)}'),
+                          child: DogeImage(imageUrl: imageUrl),
                         );
                       },
                       childCount: images.length,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/modules/dogs/widgets/shibe_image.dart';
+import 'package:flutter_template/modules/doge/widgets/doge_image.dart';
 import 'package:share_plus/share_plus.dart';
 
 class DogeDetailPage extends StatelessWidget {
@@ -20,7 +20,7 @@ class DogeDetailPage extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: ShibeImage(imageUrl: imageUrl),
+        child: DogeImage(imageUrl: imageUrl),
       ),
     );
   }

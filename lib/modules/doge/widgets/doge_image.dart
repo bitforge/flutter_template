@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class ShibeImage extends StatelessWidget {
-  const ShibeImage({
+class DogeImage extends StatelessWidget {
+  const DogeImage({
     required this.imageUrl,
     super.key,
   });
