@@ -14,6 +14,7 @@ class _ClassicCounterState extends State<ClassicCounter> {
   int _counter = 0;
 
   void _increment() {
+    if (_counter >= 10) return;
     setState(() {
       _counter++;
     });
@@ -21,7 +22,6 @@ class _ClassicCounterState extends State<ClassicCounter> {
 
   void _decrement() {
     if (_counter <= 0) return;
-
     setState(() {
       _counter--;
     });

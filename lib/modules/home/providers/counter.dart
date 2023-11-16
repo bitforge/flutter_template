@@ -1,19 +1,23 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final counterProvider = StateNotifierProvider<Counter, int>((ref) => Counter());
-
-// TODO: Maybe use new Notifier
+final counterProvider = NotifierProvider<CounterNotifier, int>(CounterNotifier.new);
 
 /// Simple counter provider
-class Counter extends StateNotifier<int> {
-  Counter() : super(0);
+class CounterNotifier extends Notifier<int> {
+  @override
+  int build() => 0;
+
+  static int kMin = 0;
+  static int kMax = 10;
 
   void increment() {
-    state++;
+    if (state < kMax) {
+      state++;
+    }
   }
 
   void decrement() {
-    if (state > 0) {
+    if (state > kMin) {
       state--;
     }
   }
