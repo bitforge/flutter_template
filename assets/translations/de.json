@@ -5,6 +5,12 @@
     "counter_classic": "Klassisch",
     "counter_riverpod": "Riverpod"
   },
+  "info": {
+    "text1": "Bitforge Flutter Template",
+    "text2": "Wahrscheinlich nur der beste Weg der Welt,\num eine neues (Mobile) App Projekt zu starten.",
+    "text3": "🚀 🌑 ➡️ 🌕 🥂 🥇",
+    "close": "Zurück"
+  },
   "counter": {
     "decrement": "Verringern",
     "increment": "Erhöhen"
