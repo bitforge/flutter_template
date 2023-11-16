@@ -1,4 +1,6 @@
 # Flutter App Icon config
+# Docs: https://pub.dev/packages/flutter_launcher_icons
+# Apply: dart run flutter_launcher_icons
 flutter_launcher_icons:
   ios: true
   image_path: assets/icons/bitforge_white_on_black.png

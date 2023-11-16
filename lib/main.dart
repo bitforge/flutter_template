@@ -13,8 +13,6 @@ void main() async {
 
   // TODO: Add Clean script
 
-  // TODO: Add Splash Screen / Launcher
-
   runApp(
     EasyLocalization(
       path: 'assets/translations',
