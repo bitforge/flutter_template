@@ -1,15 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/constants/keys.dart';
+import 'package:flutter_template/modules/global/info.dart';
 import 'package:gap/gap.dart';
 
-void showInfoModal(BuildContext context) {
+void showAppInfo(BuildContext context) {
   final theme = Theme.of(context);
   showModalBottomSheet<void>(
     context: rootNavigatorKey.currentState!.context,
     builder: (BuildContext context) {
       return SizedBox(
-        height: 250,
+        height: 200,
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(32.0),
@@ -22,15 +23,11 @@ void showInfoModal(BuildContext context) {
                   style: theme.textTheme.titleLarge,
                   textAlign: TextAlign.center,
                 ),
-                Text(
-                  'info.text2'.tr(),
-                  style: theme.textTheme.bodyMedium,
-                  textAlign: TextAlign.center,
-                ),
                 const Gap(16),
                 Text(
-                  'info.text3'.tr(),
-                  style: theme.textTheme.headlineSmall,
+                  'info.text2'.tr(namedArgs: {'version': packageInfo.version}),
+                  style: theme.textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
                 ),
                 const Gap(16),
                 ElevatedButton(

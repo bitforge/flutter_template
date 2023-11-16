@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template/modules/home/actions/show_info_modal.dart';
+import 'package:flutter_template/modules/global/actions/show_app_info.dart';
 import 'package:flutter_template/modules/home/widgets/classic_counter.dart';
 import 'package:flutter_template/modules/home/widgets/riverpod_counter.dart';
 
@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
           title: const Text('Counters'),
           actions: [
             IconButton(
-              onPressed: () => showInfoModal(context),
+              onPressed: () => showAppInfo(context),
               icon: const Icon(Icons.info),
             ),
           ],
