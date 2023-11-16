@@ -36,6 +36,7 @@ class AwesomeApp extends StatelessWidget {
         useMaterial3: useMaterial3,
         colorScheme: ColorScheme.fromSeed(
           seedColor: seedColor,
+          secondary: Colors.amberAccent.shade700,
         ),
         textTheme: GoogleFonts.robotoTextTheme(
           ThemeData.light().textTheme,
@@ -45,6 +46,7 @@ class AwesomeApp extends StatelessWidget {
         useMaterial3: useMaterial3,
         colorScheme: ColorScheme.fromSeed(
           seedColor: seedColor,
+          secondary: Colors.grey.shade100,
           brightness: Brightness.dark,
         ),
         textTheme: GoogleFonts.robotoTextTheme(
