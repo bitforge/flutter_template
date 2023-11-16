@@ -11,6 +11,10 @@ void main() async {
   // Ensure localization is initialized before running app
   await EasyLocalization.ensureInitialized();
 
+  // TODO: Add Clean script
+
+  // TODO: Add Splash Screen / Launcher
+
   runApp(
     EasyLocalization(
       path: 'assets/translations',
