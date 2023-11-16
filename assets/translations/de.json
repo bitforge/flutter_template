@@ -5,6 +5,10 @@
     "counter_classic": "Klassisch",
     "counter_riverpod": "Riverpod"
   },
+  "counter": {
+    "decrement": "Verringern",
+    "increment": "Erhöhen"
+  },
   "doge": {
     "nav": "Doge",
     "title": "Doge as a Service!",
