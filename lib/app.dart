@@ -10,14 +10,18 @@ class AwesomeApp extends StatelessWidget {
   // Your app name
   static const title = 'Awesome New App Name';
 
-  // Basic initial theme
-  // Material 3 theme builders:
-  // - https://m3.material.io/theme-builder
-  // - https://docs.flexcolorscheme.com
-  // - https://appainter.dev
+  // Basic initial color & text theme
+  //
+  // Start with a Material 3 theme builder:
+  // - Offical: https://m3.material.io/theme-builder
+  // - Apppainter (Has color palettes): https://appainter.dev
+  //
+  // Also check the official Figam Material 3 Desgin Kit:
+  // https://www.figma.com/community/file/1035203688168086460
+  //
+  // Toggle this flag to switch to Material 3
   static const useMaterial3 = false;
   static const seedColor = Colors.pink;
-  static final textTheme = GoogleFonts.robotoTextTheme();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +37,9 @@ class AwesomeApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: seedColor,
         ),
-        textTheme: textTheme,
+        textTheme: GoogleFonts.robotoTextTheme(
+          ThemeData.light().textTheme,
+        ),
       ),
       darkTheme: ThemeData(
         useMaterial3: useMaterial3,
@@ -41,7 +47,9 @@ class AwesomeApp extends StatelessWidget {
           seedColor: seedColor,
           brightness: Brightness.dark,
         ),
-        textTheme: textTheme,
+        textTheme: GoogleFonts.robotoTextTheme(
+          ThemeData.dark().textTheme,
+        ),
       ),
     );
   }
