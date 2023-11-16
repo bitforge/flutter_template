@@ -10,16 +10,17 @@ class AwesomeApp extends StatelessWidget {
   // Your app name
   static const title = 'Awesome New App Name';
 
-  // Basic initial color & text theme
+  // Basic initial Material 2 color theme
   //
-  // Start with a Material 3 theme builder:
-  // - Offical: https://m3.material.io/theme-builder
-  // - Apppainter (Has color palettes): https://appainter.dev
+  // Start with a Material theme builder:
+  // - Offical Theme Builder (Google): https://m3.material.io/theme-builder
+  // - Appainter (Has color palettes): https://appainter.dev
   //
-  // Also check the official Figam Material 3 Desgin Kit:
+  // Also check the official Figma Material 3 Desgin Kit:
   // https://www.figma.com/community/file/1035203688168086460
   //
-  // Toggle this flag to switch to Material 3
+  // This template uses Material 2 by default, since it`s simple & colorful to start with.
+  // When you're ready, it's recommended to switch to a dynamic or custom Material 3 theme.
   static const useMaterial3 = false;
   static const seedColor = Colors.pink;
 
