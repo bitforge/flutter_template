@@ -31,10 +31,8 @@ find lib -type f -print0 | xargs -0 sed -i '' 's/flutter_template/your_new_name/
 ```
 flutter config --no-enable-linux-desktop
 flutter config --no-enable-macos-desktop
-flutter config --no-enable-windows-desktop
 rm -rf linux
 rm -rf macos
-rm -rf windows
 ```
 
 5. Add your Icon to `assets/icons` and edit `flutter_launcher_icons.yaml`. Then run:
