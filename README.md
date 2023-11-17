@@ -19,7 +19,14 @@ rename setAppName -v AppName
 rename setBundleId -v ch.bitforge.appname
 ```
 
-3. Disable platforms you don't need:
+3. Rename dart package name
+
+```
+sed -i '' 's/flutter_template/your_new_name/g' pubspec.yaml
+find lib -type f -print0 | xargs -0 sed -i '' 's/flutter_template/your_new_name/g'
+```
+
+4. Disable platforms you don't need:
 
 ```
 flutter config --no-enable-linux-desktop
@@ -30,13 +37,13 @@ rm -rf macos
 rm -rf windows
 ```
 
-4. Add your Icon to `assets/icons` and edit `flutter_launcher_icons.yaml`. Then run:
+5. Add your Icon to `assets/icons` and edit `flutter_launcher_icons.yaml`. Then run:
 
 ```
 dart run flutter_launcher_icons
 ```
 
-5. Start hacking!
+6. Start hacking!
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
