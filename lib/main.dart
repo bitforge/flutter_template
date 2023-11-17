@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/app.dart';
 import 'package:flutter_template/constants/locales.dart';
+import 'package:flutter_template/modules/global/info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 void main() async {
-  // Ensure widget bindings are initialized before running app
+  // Initialize widget bindings
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Ensure localization is initialized before running app
+  // Initialize translations
   await EasyLocalization.ensureInitialized();
+
+  // Initialize package info
+  packageInfo = await PackageInfo.fromPlatform();
 
   runApp(
     EasyLocalization(
