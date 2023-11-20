@@ -14,22 +14,11 @@ class CounterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Ink(
-      width: 40,
-      height: 40,
-      decoration: ShapeDecoration(
-        color: theme.colorScheme.primary,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
-        ),
-      ),
-      child: IconButton(
-        padding: EdgeInsets.zero,
-        onPressed: onPressed,
-        color: theme.colorScheme.surface,
-        icon: Icon(icon),
-      ),
+    return IconButton.filled(
+      padding: EdgeInsets.zero,
+      onPressed: onPressed,
+      tooltip: tooltip,
+      icon: Icon(icon),
     );
   }
 }
