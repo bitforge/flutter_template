@@ -16,24 +16,23 @@ class RootShell extends ConsumerWidget {
 
     return Scaffold(
       body: navigationShell,
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+      bottomNavigationBar: NavigationBar(
+        destinations: [
+          NavigationDestination(
             icon: const Icon(Icons.home),
             label: 'home.nav'.tr(),
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: const Icon(Icons.pets),
             label: 'doge.nav'.tr(),
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: const Icon(Icons.more_horiz),
             label: 'more.nav'.tr(),
           ),
         ],
-        currentIndex: currentIndex,
-        onTap: (index) {
+        selectedIndex: currentIndex,
+        onDestinationSelected: (index) {
           // A common pattern when using bottom navigation bars is to support navigating
           // back to the initial location when tapping the item that is  already active.
           final popToRoot = index == navigationShell.currentIndex;
