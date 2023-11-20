@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 // - Offical Theme Builder (Google): https://m3.material.io/theme-builder
 // - Appainter (Has color palettes): https://appainter.dev
 //
-// Also check the official Figma Material 3 Desgin Kit:
+// Also check the official Figma Material 3 Desgin Kit & Theme Builder:
 // https://www.figma.com/community/file/1035203688168086460
+// https://www.figma.com/community/plugin/1034969338659738588/material-theme-builder
 //
 
 const lightColorScheme = ColorScheme(
