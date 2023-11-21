@@ -1,13 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template/modules/global/info.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_template/modules/global/providers/package_info.dart';
 import 'package:gap/gap.dart';
 
-class AppInfoSheet extends StatelessWidget {
+class AppInfoSheet extends ConsumerWidget {
   const AppInfoSheet({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final packageInfo = ref.read(packageInfoProvider);
     final theme = Theme.of(context);
     return SizedBox(
       width: MediaQuery.sizeOf(context).width,
