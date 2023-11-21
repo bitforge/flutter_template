@@ -23,6 +23,11 @@ dependencies:
   google_fonts: ^6.1.0
   package_info_plus: ^4.2.0
   share_plus: ^7.2.1
+  sheet:
+    git:
+      url: git@github.com:jamesblasco/modal_bottom_sheet.git
+      ref: main
+      path: sheet
   url_launcher: ^6.2.1
 
 dev_dependencies:

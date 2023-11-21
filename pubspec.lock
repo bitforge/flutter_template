@@ -701,6 +701,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+  sheet:
+    dependency: "direct main"
+    description:
+      path: sheet
+      ref: main
+      resolved-ref: d5c9ceb4e2263f63f449ed9b1c212a34c6dcaa5d
+      url: "git@github.com:jamesblasco/modal_bottom_sheet.git"
+    source: git
+    version: "1.0.0-pre"
   sky_engine:
     dependency: transitive
     description: flutter
