@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_template/constants/keys.dart';
 import 'package:flutter_template/modules/doge/routes.dart';
+import 'package:flutter_template/modules/global/routes.dart';
 import 'package:flutter_template/modules/home/routes.dart';
 import 'package:flutter_template/modules/more/routes.dart';
 import 'package:flutter_template/shell.dart';
@@ -36,5 +37,8 @@ final router = GoRouter(
         ),
       ],
     ),
+
+    // Global routes
+    ...globalRoutes,
   ],
 );

@@ -11,32 +11,29 @@ class AppInfoSheet extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final packageInfo = ref.read(packageInfoProvider);
     final theme = Theme.of(context);
-    return SizedBox(
-      width: MediaQuery.sizeOf(context).width,
-      child: Padding(
-        padding: const EdgeInsets.all(32.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Text(
-              'info.text1'.tr(),
-              style: theme.textTheme.titleLarge,
-              textAlign: TextAlign.center,
-            ),
-            const Gap(16),
-            Text(
-              'info.text2'.tr(namedArgs: {'version': packageInfo.version}),
-              style: theme.textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-            const Gap(16),
-            ElevatedButton(
-              child: Text('info.close'.tr()),
-              onPressed: () => Navigator.pop(context),
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(32.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text(
+            'info.text1'.tr(),
+            style: theme.textTheme.titleLarge,
+            textAlign: TextAlign.center,
+          ),
+          const Gap(16),
+          Text(
+            'info.text2'.tr(namedArgs: {'version': packageInfo.version}),
+            style: theme.textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+          const Gap(16),
+          ElevatedButton(
+            child: Text('info.close'.tr()),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ],
       ),
     );
   }
