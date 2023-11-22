@@ -15,8 +15,7 @@ class AppInfoSheet extends ConsumerWidget {
     return Sheet(
       initialExtent: 240,
       physics: const NeverDraggableSheetPhysics(),
-      child: Container(
-        color: Colors.red,
+      child: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
