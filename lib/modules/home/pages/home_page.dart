@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
           title: const Text('Counters'),
           actions: [
             IconButton(
-              onPressed: () => context.go('/app_info'),
+              onPressed: () => context.go('/home/app_info'),
               icon: const Icon(Icons.info),
             ),
           ],
