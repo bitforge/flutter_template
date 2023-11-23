@@ -2,11 +2,25 @@
 
 A template project for new Bitforge Flutter apps.
 
-Maybe the best way to start any new (mobile) project in the world. 🚀 🌑 ➡️ 🌕 🥂 🥇
+Maybe the best way to start a new mobile app project in the world. 🚀 🌑 ➡️ 🌕 🥂 🥇
 
 👍 Main-Goal: Start a new and extendable Flutter App quickly
 
 👎 Non-Goal: Create an Engine or Framework with a 💩-load of dependencies
+
+Main features:
+
+- Quick Setup with including app name & identifier, app icon, splashscreen etc.
+- [Riverpod Architecture](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/) inspired by [@bizz84](https://github.com/bizz84)
+- [Modular App Structure](https://codewithandrea.com/articles/flutter-project-structure/) aka Feature-First
+- [Material 3](https://m3.material.io/) base theme with dark mode support
+- [go_router](https://pub.dev/documentation/go_router/latest/index.html) with bottom navigation & deep linking support
+- [riverpod](https://riverpod.dev/) basic examples for StateNotifier & dependency injection
+- [dio](https://pub.dev/packages/dio) based REST API example for cute [shibe](https://shibes.online) images
+- [share_plus](https://pub.dev/packages/share_plus) for sharing doge images
+- [easy_localization](https://pub.dev/packages/easy_localization) translation ready
+- [url_launcher](https://pub.dev/packages/url_launcher) to open browser links on all platforms
+- [app_settings](https://pub.dev/packages/app_settings) to change language via system settings
 
 ## Getting Started
 
