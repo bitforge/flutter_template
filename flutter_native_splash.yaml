@@ -3,4 +3,4 @@
 # Apply: dart run flutter_native_splash:create
 flutter_native_splash:
   color: "#0A0908"
-  image: assets/icons/splash.png
+  image: assets/images/splash.png

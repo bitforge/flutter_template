@@ -4,13 +4,11 @@ A template project for new Bitforge Flutter apps.
 
 Maybe the best way to start a new mobile app project in the world. 🚀 🌑 ➡️ 🌕 🥂 🥇
 
-👍 Main-Goal: Start new and extendable Flutter Apps quickly
+👍 Main-Goal: Start new and extendable Flutter Apps quickly.
+👎 Non-Goal: A jack of all trades: This is not a framework!
 
-This is just a starting point for new apps, not a framework.
-
-It's intentionally kept light both in code size & package dependencies.
-
-I've you wanna share code across projects, please consider creating a library instead.
+It's intentionally kept light both in code size & pub dependencies.
+I've you wanna share code across projects, consider creating a library instead.
 
 Features:
 
@@ -20,7 +18,7 @@ Features:
 - [Material 3](https://m3.material.io/) base theme with dark mode support
 - [go_router](https://pub.dev/documentation/go_router/latest/index.html) with bottom navigation & deep linking support
 - [riverpod](https://riverpod.dev/) basic examples for StateNotifier & dependency injection
-- [dio](https://pub.dev/packages/dio) based REST API example for cute [shibe](https://shibes.online) images
+- [dio](https://pub.dev/packages/dio) based REST API example for cute [shibe](https://shibe.online) images
 - [share_plus](https://pub.dev/packages/share_plus) for sharing doge images
 - [easy_localization](https://pub.dev/packages/easy_localization) translation ready
 - [url_launcher](https://pub.dev/packages/url_launcher) to open browser links on all platforms
@@ -53,10 +51,11 @@ rm -rf linux
 rm -rf macos
 ```
 
-5. Add your Icon to `assets/icons` and edit `flutter_launcher_icons.yaml`. Then run:
+5. Add your icon an splash image to `assets/images`. Then run:
 
 ```
 dart run flutter_launcher_icons
+dart run flutter_native_splash:create
 ```
 
 6. Start hacking!
