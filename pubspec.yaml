@@ -28,6 +28,7 @@ dependencies:
       url: https://github.com/jamesblasco/modal_bottom_sheet.git
       ref: main
       path: sheet
+  test: ^1.24.9
   url_launcher: ^6.2.1
 
 dev_dependencies:
