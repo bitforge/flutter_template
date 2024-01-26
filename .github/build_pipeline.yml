@@ -1,0 +1,141 @@
+name: 📦 🚀 Build Pipeline
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "develop", "release", "main" ]
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+  setup:
+    name: 🚦 Setup
+    runs-on: self-hosted
+    outputs:
+      build_number: ${{ steps.buildnumber.outputs.BUILD_NUMBER }}
+    steps:
+      # Checkout branch (https://github.com/actions/checkout)
+      - name: 🦄 Checkout repository
+        uses: actions/checkout@v4
+
+      # Install dependencies
+      - name: 🛠️ Install dependencies
+        run: flutter pub get
+
+      # Get incremental build number
+      # https://github.com/onyxmueller/build-tag-number
+      - name: 🗳️ Get build number
+        id: buildnumber
+        uses: onyxmueller/build-tag-number@v1
+        with:
+          token: ${{secrets.github_token}}
+
+  test:
+    name: 🧑‍🔬 Test
+    runs-on: self-hosted
+    needs: setup
+    steps:
+      # Static code analysis (https://dart.dev/tools/analysis)
+      - name: 🔎 Analyze code
+        run: flutter analyze --no-fatal-infos --fatal-warnings
+
+      # Run tests
+      - name: 🧪 Run tests
+        run: flutter test
+
+  buildAndroid:
+    name: 🤖 Android
+    runs-on: self-hosted
+    needs: [ setup, test ]
+    steps:
+      # Put Android signing keys in place
+      - name: 🔐 Create keystore file
+        env:
+          KEYSTORE_JKS: ${{ secrets.ANDROID_KEYSTORE_JKS }}
+          KEYSTORE_PROPERTIES: ${{ secrets.ANDROID_KEYSTORE_PROPERTIES }}
+        run: |
+          echo $KEYSTORE_JKS | base64 --decode > "${{ github.workspace }}/android/app/keystore.jks"
+          echo $KEYSTORE_PROPERTIES | base64 --decode > "${{ github.workspace }}/android/keystore.properties"
+
+      # Build Signed Android App Bundle
+      - name: 📦 Build Android App
+        run: |
+          flutter build appbundle \
+            --build-number ${{ needs.setup.outputs.build_number }} \
+            --split-debug-info=symbols/android \
+            --obfuscate \
+            --release
+
+  buildiOS:
+    name: 🍏 iOS
+    runs-on: self-hosted
+    needs: [ setup, test ]
+    steps:
+      # Unlock Xcode Signing Key
+      - name: 🔐 Unlock keychain
+        run: security unlock-keychain -p "${{ secrets.KEYCHAIN_PASSWORD }}"
+
+      # Build Signed IPA for AppStore / TestFlight
+      - name: 📦 Build iOS App
+        run: |
+          flutter build ipa \
+            --build-number ${{ needs.setup.outputs.build_number }} \
+            --export-options-plist=ios/Runner/export_options.plist \
+            --split-debug-info=symbols/ios \
+            --obfuscate \
+            --release
+
+  # TODO: Enable when AppCenter Android is ready
+  # deployAppCenter:
+  #   name: 🚀 AppCenter
+  #   runs-on: self-hosted
+  #   needs: buildAndroid
+  #   if: github.ref == 'refs/heads/release'
+  #   steps:
+  #     # Deploy Android Build via AppCenter
+  #     - name: 🚀 Deploy to AppCenter
+  #       run: |
+  #         appcenter distribute release \
+  #           --file ${{ github.workspace }}/build/app/outputs/bundle/release/app-release.aab \
+  #           --token "${{ secrets.APPCENTER_API_TOKEN }}" \
+  #           --app bitforge/RTR-ANDROID \
+  #           --group "Team RTR"
+
+  # TODO: Enable when AppStore TestFlight is ready
+  # deployTestFlight:
+  #   name: 🚀 TestFlight
+  #   runs-on: self-hosted
+  #   needs: buildiOS
+  #   if: github.ref == 'refs/heads/release'
+  #   steps:
+  #     # Deploy iOS Build via TestFlight
+  #     - name: 🚀 Deploy to TestFlight
+  #       env:
+  #         FASTLANE_BASE64: ${{ secrets.FASTLANE_API_KEY }}
+  #       run: |
+  #         echo $FASTLANE_BASE64 | base64 --decode > "${{ github.workspace }}/ios/fastlane_appstore.json"
+  #         fastlane pilot upload \
+  #           --api_key_path=${{ github.workspace }}/ios/fastlane_appstore.json \
+  #           --ipa=${{ github.workspace }}/build/ios/ipa/RTR.ipa \
+  #           --skip_submission \
+  #           --skip_waiting_for_build_processing
+
+  # TODO: Enable when Playstore Presence is ready
+  # deployAndroidPlaystore:
+  #   name: 🚀 Playstore
+  #   runs-on: self-hosted
+  #   needs: [setup, buildAndroid]
+  #   if: github.ref == 'refs/heads/int'
+  #   steps:
+  #     # Deploy Android Build via PlayStore
+  #     - name: 🚀 Deploy to Playstore
+  #       working-directory: ./frontend
+  #       env:
+  #         FASTLANE_BASE64: ${{ secrets.FASTLANE_API_KEY_GOOGLE }}
+  #       run: |
+  #         echo $FASTLANE_BASE64 | base64 --decode > "${{ github.workspace }}/frontend/android/fastlane.json"
+  #         fastlane supply \
+  #           --json_key "${{ github.workspace }}/frontend/android/fastlane.json" \
+  #           --aab "${{ github.workspace }}/frontend/build/app/outputs/bundle/${{ needs.setup.outputs.flavor }}Release/app-${{ needs.setup.outputs.flavor }}-release.aab" \
+  #           --package_name $PACKAGE_NAME \
+  #           --track beta
