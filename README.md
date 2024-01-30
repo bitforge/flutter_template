@@ -7,7 +7,7 @@ Maybe the best way to start a new mobile app project in the world. 🚀 🌑 ➡
 👍 Main-Goal: Start new and extendable Flutter Apps quickly.
 👎 Non-Goal: A jack of all trades: This is not a framework!
 
-It's intentionally kept light both in code size & pub dependencies.
+This project is intentionally kept light both in code size & pub.dev dependencies.
 I've you wanna share code across projects, consider creating a library instead.
 
 Features:
@@ -22,7 +22,7 @@ Features:
 - [share_plus](https://pub.dev/packages/share_plus) for sharing doge images
 - [easy_localization](https://pub.dev/packages/easy_localization) translation ready
 - [url_launcher](https://pub.dev/packages/url_launcher) to open browser links on all platforms
-- [app_settings](https://pub.dev/packages/app_settings) to change language via system settings
+- [app_settings](https://pub.dev/packages/app_settings) to change app language via system settings
 
 ## Getting Started
 
