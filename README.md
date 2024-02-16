@@ -2,13 +2,13 @@
 
 A template project for new Bitforge Flutter apps.
 
-Maybe the best way to start a new mobile app project in the world. 🚀 🌑 ➡️ 🌕 🥂 🥇
+_Main-Goal 👍_: Start new and extendable Flutter Apps quickly.
 
-👍 Main-Goal: Start new and extendable Flutter Apps quickly.
-👎 Non-Goal: A jack of all trades: This is not a framework!
+_Non-Goal 👎_: A jack of all trades or a new Flutter framework.
 
-This project is intentionally kept light both in code size & pub.dev dependencies.
-I've you wanna share code across projects, consider creating a library instead.
+This project is intentionally kept light both in code size & pubspec dependencies.
+
+I've you wanna share code across projects, consider creating a https://pub.dev library.
 
 Features:
 
