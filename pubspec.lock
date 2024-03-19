@@ -789,15 +789,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
-  sheet:
-    dependency: "direct main"
-    description:
-      path: sheet
-      ref: main
-      resolved-ref: e44458d2359565324e117bb3d41da04f5e60362e
-      url: "https://github.com/jamesblasco/modal_bottom_sheet.git"
-    source: git
-    version: "1.0.0"
   shelf:
     dependency: transitive
     description:

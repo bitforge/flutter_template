@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/modules/more/actions/change_language.dart';
 import 'package:flutter_template/modules/more/actions/launch_browser.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_template/modules/more/widgets/app_info_sheet.dart';
 
 class MorePage extends StatelessWidget {
   const MorePage({super.key});
@@ -14,7 +14,13 @@ class MorePage extends StatelessWidget {
         title: Text('more.title'.tr()),
         actions: [
           IconButton(
-            onPressed: () => context.go('/more/app_info'),
+            onPressed: () {
+              showModalBottomSheet<AppInfoSheet>(
+                context: context,
+                useRootNavigator: true,
+                builder: (context) => const AppInfoSheet(),
+              );
+            },
             icon: const Icon(Icons.info),
           ),
         ],
