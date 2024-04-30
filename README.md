@@ -58,7 +58,17 @@ dart run flutter_launcher_icons
 dart run flutter_native_splash:create
 ```
 
-6. Start hacking!
+6. Start a new history & initialize your GitHub repo:
+
+```
+rm -rf .git
+git init
+git commit -am "Initial commit"
+git remote add origin git@github.com:<owner>/<repo_name>.git
+git push -u origin main
+```
+
+7. Start hacking!
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
