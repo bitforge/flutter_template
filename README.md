@@ -27,7 +27,12 @@ Features:
 ## Getting Started
 
 1. Clone this repository
-2. Rename this app
+
+```
+git clone https://github.com/bitforge/flutter_template.git appname
+```
+
+2. Rename app & identifier
 
 ```
 flutter pub global activate rename
@@ -42,23 +47,14 @@ sed -i '' 's/flutter_template/your_new_name/g' pubspec.yaml
 find lib -type f -print0 | xargs -0 sed -i '' 's/flutter_template/your_new_name/g'
 ```
 
-4. Disable platforms you don't need:
-
-```
-flutter config --no-enable-linux-desktop
-flutter config --no-enable-macos-desktop
-rm -rf linux
-rm -rf macos
-```
-
-5. Add your icon an splash image to `assets/images`. Then run:
+4. Add your icon an splash image to `assets/images`. Then run:
 
 ```
 dart run flutter_launcher_icons
 dart run flutter_native_splash:create
 ```
 
-6. Start a new history & initialize your GitHub repo:
+5. Start a new history & initialize your GitHub repo:
 
 ```
 rm -rf .git
@@ -68,7 +64,7 @@ git remote add origin git@github.com:<owner>/<repo_name>.git
 git push -u origin main
 ```
 
-7. Start hacking!
+6. Start hacking!
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,

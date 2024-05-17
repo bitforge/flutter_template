@@ -12,8 +12,3 @@ pod repo update
 cd ios
 pod update
 pod install
-
-# install macos pods
-cd ../macos
-pod update
-pod install
