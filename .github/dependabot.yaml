@@ -1,0 +1,7 @@
+# Keeps your dependencies fresh & juicy! 🥗 😋
+version: 2
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "weekly"
