@@ -36,8 +36,8 @@ git clone https://github.com/bitforge/flutter_template.git appname
 
 ```
 flutter pub global activate rename
-rename setAppName -v AppName
-rename setBundleId -v ch.bitforge.appname
+rename setAppName -v <YourAppName>
+rename setBundleId -v ch.bitforge.<appname>
 ```
 
 3. Rename dart package name
