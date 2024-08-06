@@ -1,4 +1,4 @@
-# Keeps your dependecies fresh & juicy! 🥗 😋
+# Keeps your dependencies fresh & juicy! 🥗 😋
 version: 2
 updates:
   - package-ecosystem: "pub"
