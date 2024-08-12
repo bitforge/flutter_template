@@ -20,7 +20,7 @@ dependencies:
   go_router: ^14.2.2
   google_fonts: ^6.1.0
   package_info_plus: ^8.0.0
-  share_plus: ^9.0.0
+  share_plus: ^10.0.1
   url_launcher: ^6.3.0
 
 dev_dependencies:
