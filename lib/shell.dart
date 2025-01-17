@@ -14,32 +14,38 @@ class RootShell extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentIndex = ref.watch(currentTabProvider);
 
+    const hiddenNavBarBranches = [0];
+
+    final isNavBarVisible = !hiddenNavBarBranches.contains(currentIndex);
+
     return Scaffold(
       body: navigationShell,
-      bottomNavigationBar: NavigationBar(
-        destinations: [
-          NavigationDestination(
-            icon: const Icon(Icons.home),
-            label: 'home.nav'.tr(),
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.pets),
-            label: 'doge.nav'.tr(),
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.more_horiz),
-            label: 'more.nav'.tr(),
-          ),
-        ],
-        selectedIndex: currentIndex,
-        onDestinationSelected: (index) {
-          // A common pattern when using bottom navigation bars is to support navigating
-          // back to the initial location when tapping the item that is  already active.
-          final popToRoot = index == navigationShell.currentIndex;
-          navigationShell.goBranch(index, initialLocation: popToRoot);
-          ref.read(currentTabProvider.notifier).state = index;
-        },
-      ),
+      bottomNavigationBar: isNavBarVisible
+          ? NavigationBar(
+              destinations: [
+                NavigationDestination(
+                  icon: const Icon(Icons.home),
+                  label: 'home.nav'.tr(),
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.pets),
+                  label: 'doge.nav'.tr(),
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.more_horiz),
+                  label: 'more.nav'.tr(),
+                ),
+              ],
+              selectedIndex: currentIndex,
+              onDestinationSelected: (index) {
+                // A common pattern when using bottom navigation bars is to support navigating
+                // back to the initial location when tapping the item that is  already active.
+                final popToRoot = index == navigationShell.currentIndex;
+                navigationShell.goBranch(index, initialLocation: popToRoot);
+                ref.read(currentTabProvider.notifier).state = index;
+              },
+            )
+          : null,
     );
   }
 }

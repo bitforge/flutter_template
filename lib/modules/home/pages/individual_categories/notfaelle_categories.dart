@@ -1,32 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/modules/home/widgets/categories.dart';
 import 'package:flutter_template/modules/home/widgets/category_tile.dart';
+import 'package:flutter_template/modules/home/widgets/custom_appbar.dart';
 import 'package:go_router/go_router.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class NotfaelleCategories extends StatelessWidget {
+  final String title;
+
+  const NotfaelleCategories({required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
-    final categories = getCategories('telefonbuchCategories');
+    final categories = getCategories('notfaelleCategories');
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Telefonbuch'),
-        actions: [
-          TextButton(
-            onPressed: () {
-              context.push('/info');
-            },
-            child: const Text(
-              'Info',
-              style: TextStyle(color: Colors.blue),
-            ),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(title: title),
       body: SafeArea(
-        bottom: false,
         child: Column(
           children: categories.map((category) {
             return Expanded(
@@ -35,8 +24,9 @@ class HomePage extends StatelessWidget {
                 color: category.color,
                 icon: category.icon,
                 onTap: () {
-                  context
-                      .push('/category/${Uri.encodeComponent(category.title)}');
+                  context.push(
+                    '/category/notfaelle/${Uri.encodeComponent(category.title)}',
+                  );
                 },
               ),
             );
