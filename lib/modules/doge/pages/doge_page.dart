@@ -1,53 +1,108 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:catfacts/catfacts.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/modules/doge/providers/doge_images_provider.dart';
-import 'package:flutter_template/modules/doge/widgets/doge_image.dart';
-import 'package:go_router/go_router.dart';
 
-class DogePage extends ConsumerWidget {
-  const DogePage({super.key});
+class DogePage extends StatefulWidget {
+  final BreedsApi breedsApi = BreedsApi(Dio(BaseOptions(
+    baseUrl: 'https://catfact.ninja/',
+  )));
 
-  /// Number of doge images shown
-  static const imageCount = 10;
+  DogePage({
+    super.key,
+  });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final shibeImages = ref.watch(dogeImagesProvider(imageCount));
+  State<DogePage> createState() => _DogePageState();
+}
 
+class _DogePageState extends State<DogePage> {
+  late Future<Response<List<Breed>>> _breedsFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _breedsFuture = widget.breedsApi.getBreeds();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('doge.title'.tr())),
-      body: shibeImages.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, stack) => ErrorWidget(err),
-        data: (images) {
-          // Return a SliverGrid with card of images
-          return RefreshIndicator(
-            onRefresh: () => ref.refresh(dogeImagesProvider(imageCount).future),
-            child: CustomScrollView(
-              slivers: [
-                SliverPadding(
-                  padding: const EdgeInsets.all(8),
-                  sliver: SliverGrid(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 8,
-                      mainAxisSpacing: 8,
-                    ),
-                    delegate: SliverChildBuilderDelegate(
-                      (context, index) {
-                        final imageUrl = images[index];
-                        return GestureDetector(
-                          onTap: () => context.push('/doge/detail/${Uri.encodeComponent(imageUrl)}'),
-                          child: DogeImage(imageUrl: imageUrl),
-                        );
-                      },
-                      childCount: images.length,
-                    ),
+      appBar: AppBar(
+        title: const Text('Cat Breeds'),
+      ),
+      body: FutureBuilder<Response<List<Breed>>>(
+        future: _breedsFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          if (snapshot.hasError) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.error_outline,
+                    color: Colors.red,
+                    size: 60,
                   ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Error loading breeds: ${snapshot.error}',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        _breedsFuture = widget.breedsApi.getBreeds();
+                      });
+                    },
+                    child: const Text('Retry'),
+                  ),
+                ],
+              ),
+            );
+          }
+
+          final breeds = snapshot.data?.data ?? [];
+
+          if (breeds.isEmpty) {
+            return const Center(
+              child: Text('No breeds found'),
+            );
+          }
+
+          return ListView.builder(
+            padding: const EdgeInsets.all(16),
+            itemCount: breeds.length,
+            itemBuilder: (context, index) {
+              final breed = breeds[index];
+              return Card(
+                margin: const EdgeInsets.only(bottom: 16),
+                child: ListTile(
+                  title: Text(
+                    breed.breed ?? 'No name available',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  subtitle: Text(breed.origin ?? 'No description available'),
+                  onTap: () {
+                    //add navigation to a detail page here
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Selected ${breed.breed}'),
+                      ),
+                    );
+                  },
                 ),
-              ],
-            ),
+              );
+            },
           );
         },
       ),

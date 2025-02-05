@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 final dogeRoutes = [
   GoRoute(
     path: '/doge',
-    builder: (context, state) => const DogePage(),
+    builder: (context, state) => DogePage(),
     routes: [
       GoRoute(
         path: 'detail/:imgUrl',
