@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **checkHealth**
-> HealthResponse checkHealth()
+> String checkHealth()
 
 Checks API health.
 
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**HealthResponse**](HealthResponse.md)
+**String**
 
 ### Authorization
 

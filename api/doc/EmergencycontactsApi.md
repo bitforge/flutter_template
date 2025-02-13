@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getEmergencyContacts**
-> List<EmergencyContact> getEmergencyContacts()
+> BuiltList<EmergencyContact> getEmergencyContacts()
 
 Gets all Departments.
 
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;EmergencyContact&gt;**](EmergencyContact.md)
+[**BuiltList&lt;EmergencyContact&gt;**](EmergencyContact.md)
 
 ### Authorization
 

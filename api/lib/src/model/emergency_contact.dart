@@ -3,84 +3,139 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'emergency_contact.g.dart';
 
+/// EmergencyContact
+///
+/// Properties:
+/// * [id]
+/// * [displayName]
+/// * [phone]
+@BuiltValue()
+abstract class EmergencyContact implements Built<EmergencyContact, EmergencyContactBuilder> {
+  @BuiltValueField(wireName: r'id')
+  String get id;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class EmergencyContact {
-  /// Returns a new [EmergencyContact] instance.
-  EmergencyContact({
+  @BuiltValueField(wireName: r'displayName')
+  String? get displayName;
 
-    required  this.id,
+  @BuiltValueField(wireName: r'phone')
+  String? get phone;
 
-     this.displayName,
+  EmergencyContact._();
 
-     this.phone,
-  });
+  factory EmergencyContact([void updates(EmergencyContactBuilder b)]) = _$EmergencyContact;
 
-  @JsonKey(
-    
-    name: r'id',
-    required: true,
-    includeIfNull: false
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(EmergencyContactBuilder b) => b;
 
-
-  final String id;
-
-
-
-  @JsonKey(
-    
-    name: r'displayName',
-    required: false,
-    includeIfNull: false
-  )
-
-
-  final String? displayName;
-
-
-
-  @JsonKey(
-    
-    name: r'phone',
-    required: false,
-    includeIfNull: false
-  )
-
-
-  final String? phone;
-
-
-
-  @override
-  bool operator ==(Object other) => identical(this, other) || other is EmergencyContact &&
-     other.id == id &&
-     other.displayName == displayName &&
-     other.phone == phone;
-
-  @override
-  int get hashCode =>
-    id.hashCode +
-    displayName.hashCode +
-    phone.hashCode;
-
-  factory EmergencyContact.fromJson(Map<String, dynamic> json) => _$EmergencyContactFromJson(json);
-
-  Map<String, dynamic> toJson() => _$EmergencyContactToJson(this);
-
-  @override
-  String toString() {
-    return toJson().toString();
-  }
-
+  @BuiltValueSerializer(custom: true)
+  static Serializer<EmergencyContact> get serializer => _$EmergencyContactSerializer();
 }
 
+class _$EmergencyContactSerializer implements PrimitiveSerializer<EmergencyContact> {
+  @override
+  final Iterable<Type> types = const [EmergencyContact, _$EmergencyContact];
+
+  @override
+  final String wireName = r'EmergencyContact';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    EmergencyContact object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
+    if (object.displayName != null) {
+      yield r'displayName';
+      yield serializers.serialize(
+        object.displayName,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.phone != null) {
+      yield r'phone';
+      yield serializers.serialize(
+        object.phone,
+        specifiedType: const FullType(String),
+      );
+    }
+  }
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    EmergencyContact object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required EmergencyContactBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.id = valueDes;
+          break;
+        case r'displayName':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.displayName = valueDes;
+          break;
+        case r'phone':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.phone = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  EmergencyContact deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = EmergencyContactBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
+}

@@ -4,21 +4,19 @@
 
 import 'dart:async';
 
-// ignore: unused_import
-import 'dart:convert';
-import 'package:telefonapi/src/deserialize.dart';
+import 'package:built_value/json_object.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:telefonapi/src/model/health_response.dart';
-
 class HealthApi {
-
   final Dio _dio;
 
-  const HealthApi(this._dio);
+  final Serializers _serializers;
+
+  const HealthApi(this._dio, this._serializers);
 
   /// Checks API health.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -28,9 +26,9 @@ class HealthApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [HealthResponse] as data
+  /// Returns a [Future] containing a [Response] with a [String] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<HealthResponse>> checkHealth({ 
+  Future<Response<String>> checkHealth({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -59,11 +57,11 @@ class HealthApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    HealthResponse? _responseData;
+    String? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<HealthResponse, HealthResponse>(rawData, 'HealthResponse', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as String;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -74,7 +72,7 @@ _responseData = rawData == null ? null : deserialize<HealthResponse, HealthRespo
       );
     }
 
-    return Response<HealthResponse>(
+    return Response<String>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -85,5 +83,4 @@ _responseData = rawData == null ? null : deserialize<HealthResponse, HealthRespo
       extra: _response.extra,
     );
   }
-
 }

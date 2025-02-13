@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getPeople**
-> List<Person> getPeople()
+> BuiltList<Person> getPeople()
 
 Gets all Baths.
 
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Person&gt;**](Person.md)
+[**BuiltList&lt;Person&gt;**](Person.md)
 
 ### Authorization
 

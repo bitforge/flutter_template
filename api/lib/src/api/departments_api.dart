@@ -4,21 +4,22 @@
 
 import 'dart:async';
 
-// ignore: unused_import
-import 'dart:convert';
-import 'package:telefonapi/src/deserialize.dart';
+import 'package:built_value/json_object.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:telefonapi/src/model/dept.dart';
 
 class DepartmentsApi {
-
   final Dio _dio;
 
-  const DepartmentsApi(this._dio);
+  final Serializers _serializers;
+
+  const DepartmentsApi(this._dio, this._serializers);
 
   /// Gets all Departments.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -28,9 +29,9 @@ class DepartmentsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<Dept>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<Dept>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<Dept>>> getDepartments({ 
+  Future<Response<BuiltList<Dept>>> getDepartments({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -59,11 +60,16 @@ class DepartmentsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<Dept>? _responseData;
+    BuiltList<Dept>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<Dept>, Dept>(rawData, 'List<Dept>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(Dept)]),
+            ) as BuiltList<Dept>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -74,7 +80,7 @@ _responseData = rawData == null ? null : deserialize<List<Dept>, Dept>(rawData, 
       );
     }
 
-    return Response<List<Dept>>(
+    return Response<BuiltList<Dept>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -85,5 +91,4 @@ _responseData = rawData == null ? null : deserialize<List<Dept>, Dept>(rawData, 
       extra: _response.extra,
     );
   }
-
 }

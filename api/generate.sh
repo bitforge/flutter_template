@@ -13,7 +13,7 @@ rm -f -r ./openapi-generator
 
 # Pin openapi-generator version
 # version info available at https://github.com/OpenAPITools/openapi-generator/releases
-npx @openapitools/openapi-generator-cli version-manager set 7.2.0
+npx @openapitools/openapi-generator-cli version-manager set 7.10.0
 
 
 # generate models and api (no docs nor tests)
@@ -24,7 +24,6 @@ npx @openapitools/openapi-generator-cli  generate \
     -i "$url" \
     -g dart-dio \
     -o ./ \
-    --additional-properties=serializationLibrary=json_serializable \
     --additional-properties=pubName=telefonapi \
     --additional-properties=pubVersion=0.0.1 \
     --additional-properties=pubAuthor=dzenanbegovic \

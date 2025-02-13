@@ -3,131 +3,175 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'dept.g.dart';
 
+/// Dept
+///
+/// Properties:
+/// * [id]
+/// * [dept]
+/// * [displayName]
+/// * [phone]
+/// * [room]
+@BuiltValue()
+abstract class Dept implements Built<Dept, DeptBuilder> {
+  @BuiltValueField(wireName: r'id')
+  String get id;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class Dept {
-  /// Returns a new [Dept] instance.
-  Dept({
+  @BuiltValueField(wireName: r'dept')
+  String? get dept;
 
-    required  this.id,
+  @BuiltValueField(wireName: r'displayName')
+  String? get displayName;
 
-     this.dept,
+  @BuiltValueField(wireName: r'phone')
+  String? get phone;
 
-     this.displayName,
+  @BuiltValueField(wireName: r'room')
+  String? get room;
 
-     this.phone,
+  Dept._();
 
-     this.room,
-  });
+  factory Dept([void updates(DeptBuilder b)]) = _$Dept;
 
-  @JsonKey(
-    
-    name: r'id',
-    required: true,
-    includeIfNull: false
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeptBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Dept> get serializer => _$DeptSerializer();
+}
 
-  final String id;
-
-
-
-  @JsonKey(
-    
-    name: r'dept',
-    required: false,
-    includeIfNull: false
-  )
-
-
-  final DeptDeptEnum? dept;
-
-
-
-  @JsonKey(
-    
-    name: r'displayName',
-    required: false,
-    includeIfNull: false
-  )
-
-
-  final String? displayName;
-
-
-
-  @JsonKey(
-    
-    name: r'phone',
-    required: false,
-    includeIfNull: false
-  )
-
-
-  final String? phone;
-
-
-
-  @JsonKey(
-    
-    name: r'room',
-    required: false,
-    includeIfNull: false
-  )
-
-
-  final String? room;
-
-
+class _$DeptSerializer implements PrimitiveSerializer<Dept> {
+  @override
+  final Iterable<Type> types = const [Dept, _$Dept];
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Dept &&
-     other.id == id &&
-     other.dept == dept &&
-     other.displayName == displayName &&
-     other.phone == phone &&
-     other.room == room;
+  final String wireName = r'Dept';
 
-  @override
-  int get hashCode =>
-    id.hashCode +
-    dept.hashCode +
-    displayName.hashCode +
-    phone.hashCode +
-    room.hashCode;
-
-  factory Dept.fromJson(Map<String, dynamic> json) => _$DeptFromJson(json);
-
-  Map<String, dynamic> toJson() => _$DeptToJson(this);
-
-  @override
-  String toString() {
-    return toJson().toString();
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    Dept object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
+    if (object.dept != null) {
+      yield r'dept';
+      yield serializers.serialize(
+        object.dept,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.displayName != null) {
+      yield r'displayName';
+      yield serializers.serialize(
+        object.displayName,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.phone != null) {
+      yield r'phone';
+      yield serializers.serialize(
+        object.phone,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.room != null) {
+      yield r'room';
+      yield serializers.serialize(
+        object.room,
+        specifiedType: const FullType(String),
+      );
+    }
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    Dept object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required DeptBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.id = valueDes;
+          break;
+        case r'dept':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.dept = valueDes;
+          break;
+        case r'displayName':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.displayName = valueDes;
+          break;
+        case r'phone':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.phone = valueDes;
+          break;
+        case r'room':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.room = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  Dept deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = DeptBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
-
-
-enum DeptDeptEnum {
-  @JsonValue(r'Human Resources')
-  humanResources,
-  @JsonValue(r'Information Technology')
-  informationTechnology,
-  @JsonValue(r'Cardiology')
-  cardiology,
-  @JsonValue(r'Neurology')
-  neurology,
-  @JsonValue(r'Orthopedics')
-  orthopedics,
-}
-
-

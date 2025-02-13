@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getDepartments**
-> List<Dept> getDepartments()
+> BuiltList<Dept> getDepartments()
 
 Gets all Departments.
 
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Dept&gt;**](Dept.md)
+[**BuiltList&lt;Dept&gt;**](Dept.md)
 
 ### Authorization
 
