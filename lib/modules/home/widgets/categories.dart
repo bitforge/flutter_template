@@ -15,20 +15,6 @@ List<CategoryItem> getCategories(String categoryType) {
         CategoryItem('Alle', Colors.lightGreen, null),
         CategoryItem('Personen', Colors.green, null),
         CategoryItem('Funktionen', Colors.green[800], null),
-        CategoryItem('Notfälle & Reanimation', Colors.red, Icons.warning),
-        CategoryItem('Favoriten', Colors.brown[400], null),
-      ];
-    case 'funktionenCategories':
-      return [
-        CategoryItem('Alle', Colors.lightGreen, null),
-        CategoryItem('OKS', Colors.green[500], null),
-        CategoryItem('YLM', Colors.green[800], null),
-        CategoryItem('RBSZ', Colors.lightBlue, null),
-      ];
-    case 'notfaelleCategories':
-      return [
-        CategoryItem('Alle', Colors.lightGreen, null),
-        CategoryItem('OKS', Colors.green[500], null),
       ];
     case 'personenCategories':
       return [

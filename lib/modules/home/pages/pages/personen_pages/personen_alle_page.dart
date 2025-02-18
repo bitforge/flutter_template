@@ -1,27 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/modules/home/pages/dummy_list_pages/personen_alle_list.dart';
-import 'package:flutter_template/modules/home/widgets/dynamic_list_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_template/modules/home/providers/people_future_provider.dart';
 import 'package:go_router/go_router.dart';
 
-class PersonenAllePage extends StatelessWidget {
+class PersonenAllePage extends ConsumerWidget {
   final String title;
 
   const PersonenAllePage({required this.title, super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return DynamicListPage(
-      title: title,
-      items: personen,
-      itemBuilder: (context, item) {
-        return ListTile(
-          title: Text('${item['name']!} ${item['vorname']!}'),
-          subtitle: Text('${item['fachbereich']!} ${item['abteilung']!}'),
-          onTap: () {
-            context.push('/personDetail', extra: item);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final peopleAsync = ref.watch(peopleFutureProvider);
+
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: peopleAsync.when(
+        data: (people) => ListView.builder(
+          itemCount: people.length,
+          itemBuilder: (context, index) {
+            final person = people[index];
+            return ListTile(
+              title: Text('${person.firstName ?? ''} ${person.lastName ?? ''}'),
+              subtitle: Text(person.dept ?? ''),
+              onTap: () {
+                context.push('/personDetail', extra: person);
+              },
+            );
           },
-        );
-      },
+        ),
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, stack) => Center(child: Text('Error: $error')),
+      ),
     );
   }
 }

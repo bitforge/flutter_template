@@ -22,15 +22,24 @@ class _$Person extends Person {
   @override
   final String? mail;
 
-  factory _$Person([void Function(PersonBuilder)? updates]) => (new PersonBuilder()..update(updates))._build();
+  factory _$Person([void Function(PersonBuilder)? updates]) =>
+      (new PersonBuilder()..update(updates))._build();
 
-  _$Person._({required this.id, this.lastName, this.firstName, this.displayName, this.dept, this.phone, this.mail})
+  _$Person._(
+      {required this.id,
+      this.lastName,
+      this.firstName,
+      this.displayName,
+      this.dept,
+      this.phone,
+      this.mail})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Person', 'id');
   }
 
   @override
-  Person rebuild(void Function(PersonBuilder) updates) => (toBuilder()..update(updates)).build();
+  Person rebuild(void Function(PersonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   PersonBuilder toBuilder() => new PersonBuilder()..replace(this);

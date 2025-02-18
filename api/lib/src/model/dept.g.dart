@@ -18,14 +18,18 @@ class _$Dept extends Dept {
   @override
   final String? room;
 
-  factory _$Dept([void Function(DeptBuilder)? updates]) => (new DeptBuilder()..update(updates))._build();
+  factory _$Dept([void Function(DeptBuilder)? updates]) =>
+      (new DeptBuilder()..update(updates))._build();
 
-  _$Dept._({required this.id, this.dept, this.displayName, this.phone, this.room}) : super._() {
+  _$Dept._(
+      {required this.id, this.dept, this.displayName, this.phone, this.room})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Dept', 'id');
   }
 
   @override
-  Dept rebuild(void Function(DeptBuilder) updates) => (toBuilder()..update(updates)).build();
+  Dept rebuild(void Function(DeptBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   DeptBuilder toBuilder() => new DeptBuilder()..replace(this);

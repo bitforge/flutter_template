@@ -14,11 +14,17 @@
     "decrement": "Decrement",
     "increment": "Increment"
   },
-  "doge": {
-    "nav": "Doge",
-    "title": "Doge as a Service!",
-    "detail": "Such Doge! Much wow!",
-    "share_subject": "Such Doge! Much wow!"
+  "emergency": {
+    "nav": "Emergency",
+    "title": "Emergency",
+    "detail": "This is an emergency!",
+    "share_subject": "Emergency!"
+  },
+  "favorites": {
+    "nav": "Favorites",
+    "title": "Favorites",
+    "detail": "This is a list of your favorites.",
+    "share_subject": "Check out favorites!"
   },
   "more": {
     "nav": "More",

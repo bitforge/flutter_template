@@ -13,34 +13,26 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Telefonbuch'),
-        actions: [
-          TextButton(
-            onPressed: () {
-              context.push('/info');
-            },
-            child: const Text(
-              'Info',
-              style: TextStyle(color: Colors.blue),
-            ),
-          ),
-        ],
       ),
       body: SafeArea(
         bottom: false,
-        child: Column(
-          children: categories.map((category) {
-            return Expanded(
-              child: CategoryTile(
-                title: category.title,
-                color: category.color,
-                icon: category.icon,
-                onTap: () {
-                  context
-                      .push('/category/${Uri.encodeComponent(category.title)}');
-                },
-              ),
-            );
-          }).toList(),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: categories.map((category) {
+              return Expanded(
+                child: CategoryTile(
+                  title: category.title,
+                  color: category.color,
+                  icon: category.icon,
+                  onTap: () {
+                    context.push(
+                        '/category/${Uri.encodeComponent(category.title)}');
+                  },
+                ),
+              );
+            }).toList(),
+          ),
         ),
       ),
     );

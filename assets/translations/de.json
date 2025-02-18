@@ -14,6 +14,12 @@
     "decrement": "Verringern",
     "increment": "Erhöhen"
   },
+  "notfall": {
+    "nav": "Notfall",
+    "title": "Notfall",
+    "detail": "Das ist ein Notfall!",
+    "share_subject": "Notfall!"
+  },
   "doge": {
     "nav": "Doge",
     "title": "Doge as a Service!",

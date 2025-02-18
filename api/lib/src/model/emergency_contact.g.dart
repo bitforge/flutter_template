@@ -14,23 +14,30 @@ class _$EmergencyContact extends EmergencyContact {
   @override
   final String? phone;
 
-  factory _$EmergencyContact([void Function(EmergencyContactBuilder)? updates]) =>
+  factory _$EmergencyContact(
+          [void Function(EmergencyContactBuilder)? updates]) =>
       (new EmergencyContactBuilder()..update(updates))._build();
 
-  _$EmergencyContact._({required this.id, this.displayName, this.phone}) : super._() {
+  _$EmergencyContact._({required this.id, this.displayName, this.phone})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'EmergencyContact', 'id');
   }
 
   @override
-  EmergencyContact rebuild(void Function(EmergencyContactBuilder) updates) => (toBuilder()..update(updates)).build();
+  EmergencyContact rebuild(void Function(EmergencyContactBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
-  EmergencyContactBuilder toBuilder() => new EmergencyContactBuilder()..replace(this);
+  EmergencyContactBuilder toBuilder() =>
+      new EmergencyContactBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is EmergencyContact && id == other.id && displayName == other.displayName && phone == other.phone;
+    return other is EmergencyContact &&
+        id == other.id &&
+        displayName == other.displayName &&
+        phone == other.phone;
   }
 
   @override
@@ -53,7 +60,8 @@ class _$EmergencyContact extends EmergencyContact {
   }
 }
 
-class EmergencyContactBuilder implements Builder<EmergencyContact, EmergencyContactBuilder> {
+class EmergencyContactBuilder
+    implements Builder<EmergencyContact, EmergencyContactBuilder> {
   _$EmergencyContact? _$v;
 
   String? _id;
@@ -100,7 +108,8 @@ class EmergencyContactBuilder implements Builder<EmergencyContact, EmergencyCont
   _$EmergencyContact _build() {
     final _$result = _$v ??
         new _$EmergencyContact._(
-          id: BuiltValueNullFieldError.checkNotNull(id, r'EmergencyContact', 'id'),
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'EmergencyContact', 'id'),
           displayName: displayName,
           phone: phone,
         );

@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/modules/home/widgets/custom_appbar.dart';
 
-typedef ListItemBuilder = Widget Function(
-  BuildContext context,
-  Map<String, String> item,
-);
+typedef ListItemBuilder<T> = Widget Function(BuildContext context, T item);
 
-class DynamicListPage extends StatefulWidget {
+class DynamicListPage<T> extends StatefulWidget {
   final String title;
-  final List<Map<String, String>> items;
-  final ListItemBuilder itemBuilder;
+  final List<T> items;
+  final ListItemBuilder<T> itemBuilder;
+  final bool Function(T item, String query)? filterCondition;
 
   const DynamicListPage({
     required this.title,
     required this.items,
     required this.itemBuilder,
+    this.filterCondition,
     super.key,
   });
 
   @override
-  State<DynamicListPage> createState() => _DynamicListPageState();
+  State<DynamicListPage<T>> createState() => _DynamicListPageState<T>();
 }
 
-class _DynamicListPageState extends State<DynamicListPage> {
+class _DynamicListPageState<T> extends State<DynamicListPage<T>> {
   Key _pageKey = UniqueKey();
-  late List<Map<String, String>> _filteredItems;
+  late List<T> _filteredItems;
 
   @override
   void initState() {
@@ -34,13 +33,13 @@ class _DynamicListPageState extends State<DynamicListPage> {
 
   void _filterItems(String query) {
     setState(() {
-      _filteredItems = widget.items
-          .where(
-            (item) => item.values.any(
-              (value) => value.toLowerCase().contains(query.toLowerCase()),
-            ),
-          )
-          .toList();
+      if (widget.filterCondition != null) {
+        _filteredItems = widget.items
+            .where((item) => widget.filterCondition!(item, query))
+            .toList();
+      } else {
+        _filteredItems = widget.items;
+      }
     });
   }
 
@@ -92,16 +91,12 @@ class _DynamicListPageState extends State<DynamicListPage> {
             const SizedBox(height: 8),
             Expanded(
               child: _filteredItems.isEmpty
-                  ? const Center(
-                      child: Text('No resulsts found!'),
-                    )
+                  ? const Center(child: Text('No results found!'))
                   : ListView.builder(
                       itemCount: _filteredItems.length,
                       itemBuilder: (context, index) {
                         return widget.itemBuilder(
-                          context,
-                          _filteredItems[index],
-                        );
+                            context, _filteredItems[index]);
                       },
                     ),
             ),
